@@ -8,7 +8,7 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>
-    <servlet-class>ooad.server.GreetingServiceImpl</servlet-class>
+    <servlet-class>ooad.server.CampingServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
