@@ -43,5 +43,6 @@ public class Ooad implements EntryPoint {
 	public void onModuleLoad() {
 		MainView mv = new MainView();
 		RootPanel.get().add(mv);
+		// Kommentar
 	}
 }
