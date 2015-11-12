@@ -10,9 +10,34 @@ h1 {
   text-align: center;
 }
 
+/* dependant style for text boxes */
+.gwt-TextBox-invalidEntry {
+	border-color: red !important;
+	width: 125px;
+}
+
+.gwt-TextBox
+{
+	width: 125px;
+}
+
+input{
+	width: 125px;
+}
+
+
 .sendButton {
   display: block;
   font-size: 16pt;
+}
+
+.caption {
+	font-size: 28px;
+}
+
+.input-text
+{
+	font-weight: bold;
 }
 
 /** Most GWT widgets already have a style name defined */
@@ -31,4 +56,17 @@ h1 {
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
+}
+
+body
+{
+	height: 100%;
+}
+
+.errorInfo
+{
+	font-weight: bold;
+	font-style:  italic;
+	font-size:   18px;
+	vertical-align: middle;
 }
