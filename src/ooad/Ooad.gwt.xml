@@ -22,11 +22,12 @@
   <!-- Specify the app entry point class.                         -->
   <entry-point class='ooad.client.Ooad'/>
 
+
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
   <source path='shared'/>
-  <source path='views'/>
   <source path='database'/>
+   <source path='views'/>
 
   <!-- allow Super Dev Mode -->
   <add-linker name="xsiframe"/>

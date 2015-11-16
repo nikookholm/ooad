@@ -1,5 +1,7 @@
 package ooad.database;
 
-public class ReservationDTO {
+import java.io.Serializable;
+
+public class ReservationDTO implements Serializable {
 
 }
