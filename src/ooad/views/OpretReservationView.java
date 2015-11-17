@@ -1,16 +1,23 @@
 package ooad.views;
 
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.datepicker.client.DatePicker;
+import com.ibm.icu.util.Calendar;
 
 public class OpretReservationView extends Composite {
 	
-	private  VerticalPanel vP ;
+	private  VerticalPanel vP , vP2;
+	private HorizontalPanel hP;
+	
 		
     private Label createReservL, 
     			  kundeInfoL,
@@ -25,22 +32,34 @@ public class OpretReservationView extends Composite {
     			  børnL,
     			  hundL
     			  ;
-    DatePicker df ;
-	private ListBox antlVoksenLB, antalBørnLB;
-	private TextBox nameBox, idBox, emailBox, startBox, endBox;
+    private  DatePicker df ;
+    private CheckBox cb;
+    private ListBox antlVoksenLB, antalBørnLB;
+	private TextBox nameBox, idBox, emailBox, startBox, endBox, voksBox, børnBox;
+	private Button voksB, børnB;
 	
-	private FlexTable ft;
+	
+	private FlexTable ft, ft2;
+	
 	
 	public OpretReservationView (){
 		
+		hP = new HorizontalPanel();
+	
+	
 		vP = new VerticalPanel(); 
+		vP2 = new VerticalPanel();
 		
 		ft = new FlexTable();
-		
+		ft2 = new FlexTable();
+		cb = new CheckBox();
 		df = new DatePicker();
+
 		
 		antlVoksenLB = new ListBox();
 		antalBørnLB = new ListBox();
+		
+	
 		
 		createReservL = new Label("Opret reservation");
 		kundeInfoL = new Label ("Information om kunden");
@@ -60,6 +79,9 @@ public class OpretReservationView extends Composite {
 		emailBox = new TextBox();
 		startBox = new TextBox();
 		endBox = new TextBox();
+		voksBox = new TextBox();
+		børnBox = new TextBox();
+		
 		
 	
 		createReservL.setStyleName("caption");
@@ -81,15 +103,31 @@ public class OpretReservationView extends Composite {
 		
 		ft.setWidget(5, 0, startBox);
 		ft.setWidget(5, 1, endBox);
-		ft.setWidget(5, 2, df);
+//		ft.setWidget(5, 2, df);
 		
+		ft.setWidget(6, 0, antalPersone);
+		
+		ft.setWidget(7, 0, voksenL);
+		ft.setWidget(7, 1, børnL);
 	
+		ft.setWidget(8, 0, antlVoksenLB);
+		ft.setWidget(8, 1, antalBørnLB);
 		
+		ft.setWidget(9, 0, hundL);
+		ft.setWidget(9, 1, cb);
 		
+		ft2.setWidget(0, 6, df);
+	
 		vP.add(createReservL);
 		vP.add(ft);
 		
-		initWidget(vP);
+		vP2.add(ft2);
+		
+		hP.add(vP);
+		hP.add(vP2);
+		
+		
+		initWidget(hP);
 	
 		
 	}
