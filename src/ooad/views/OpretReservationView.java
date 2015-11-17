@@ -48,6 +48,8 @@ public class OpretReservationView extends Composite {
 		ft.setWidget(2, 1, nameBox);
 		ft.setWidget(2, 2, emailBox);
 		
+		
+		
 		ft.setWidget(3, 0, datoL);
 		
 		ft.setWidget(4, 0, startDatoL);
