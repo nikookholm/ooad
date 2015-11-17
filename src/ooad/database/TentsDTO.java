@@ -1,5 +1,6 @@
 package ooad.database;
 
+@SuppressWarnings("serial")
 public class TentsDTO extends ProductDTO {
 
 	public TentsDTO(int ProductID, String Name, int NumberOfAdults,

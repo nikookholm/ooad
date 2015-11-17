@@ -1,5 +1,6 @@
 package ooad.database;
 
+@SuppressWarnings("serial")
 public class CabinsDTO extends ProductDTO {
 
 	

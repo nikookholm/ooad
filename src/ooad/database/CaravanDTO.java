@@ -1,5 +1,6 @@
 package ooad.database;
 
+@SuppressWarnings("serial")
 public class CaravanDTO extends ProductDTO {
 	
 	public CaravanDTO(int ProductID, String Name, int NumberOfAdults,
