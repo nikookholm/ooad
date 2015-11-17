@@ -2,37 +2,45 @@ package ooad.database;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class ProductDTO implements Serializable{
  
-	int ProductID;                    
-	String Name;
-	int NumberOfAdults;				
-	int NumberOfChildren;
-	double PriceHighSeason;
-	double PriceLowSeason;
+	int productID;                    
+	String name;
+	int numberOfAdults;				
+	int numberOfChildren;
+	double priceHighSeason;
+	double priceLowSeason;
+	double calculatePrice;
 	
-	public ProductDTO(int ProduktID, String navn, int AntalVoksne, int AntalBørn, 
-									double PrisHøjSæson, double PrisLavSæson)
+	public ProductDTO(int productID, String name, int numberOfAdults, int numberOfChildren, 
+					double priceHighSeason, double priceLowSeason, double calculatePrice)
 	{
-		this.ProductID = ProduktID;
-		this.Name = navn;
-		this.NumberOfAdults = AntalVoksne;
-		this.NumberOfChildren = AntalBørn;
-		this.PriceHighSeason = PrisHøjSæson;
-		this.PriceLowSeason = PrisLavSæson;
+		this.productID = productID;
+		this.name = name;
+		this.numberOfAdults = numberOfAdults;
+		this.numberOfChildren = numberOfChildren;
+		this.priceHighSeason = priceHighSeason;
+		this.priceLowSeason = priceLowSeason;
+		this.calculatePrice = calculatePrice;
 	}	
 	
-	public int getProduktID() {return ProductID;}
-	public void setProduktID(int ProduktID){this.ProductID = ProduktID;}
-	public String getNavn() {return Name;}
-	public void setNavn(String Navn) {this.Name = Navn;}
-	public int AntalVoksne() {return NumberOfAdults;}
-	public void setAntalVoksne(int AntalVoksne) {this.NumberOfAdults = AntalVoksne;}
-	public int AntalBørn() {return NumberOfChildren;}
-	public void setAntalBørn(int AntalBørn) {this.NumberOfChildren = AntalBørn;}
-	public double PrisHøjSæson() {return PriceHighSeason;}
-	public void setPrisHøjSæson(double PrisHøjSæson) {this.PriceHighSeason = PrisHøjSæson;}
-	public double PrisLavHøjSæson() {return PriceLowSeason;}
-	public void setPrisLavSæson(double PrisLavSæson) {this.PriceLowSeason = PrisLavSæson;}
-	
+	public int getProduktID() {return productID;}
+	public void setProduktID(int ProduktID){this.productID = ProduktID;}
+	public String getNavn() {return name;}
+	public void setNavn(String Navn) {this.name = Navn;}
+	public int AntalVoksne() {return numberOfAdults;}
+	public void setAntalVoksne(int AntalVoksne) {this.numberOfAdults = AntalVoksne;}
+	public int AntalBørn() {return numberOfChildren;}
+	public void setAntalBørn(int AntalBørn) {this.numberOfChildren = AntalBørn;}
+	public double PrisHøjSæson() {return priceHighSeason;}
+	public void setPrisHøjSæson(double PrisHøjSæson) {this.priceHighSeason = PrisHøjSæson;}
+	public double PrisLavHøjSæson() {return priceLowSeason;}
+	public void setPrisLavSæson(double PrisLavSæson) {this.priceLowSeason = PrisLavSæson;}
+	public double CalculatePrice() {return calculatePrice;}
+	public void setCalculatePrice(double CalculatePrice) {this.calculatePrice = CalculatePrice;}
+
+	public double calculatePrice() {
+		return 0;
+	}
 }
