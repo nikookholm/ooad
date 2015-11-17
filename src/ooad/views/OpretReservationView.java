@@ -83,7 +83,7 @@ public class OpretReservationView extends Composite {
 		ft.setWidget(5, 1, endBox);
 		ft.setWidget(5, 2, df);
 		
-		
+	
 		
 		
 		vP.add(createReservL);
