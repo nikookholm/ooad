@@ -6,14 +6,14 @@ public class ReservationDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	int reservationID;
-	int kundeID; 	  
-	int produktID;  
-	int pladsID;
-	boolean hund = false;
-	int antalVoksne;
-	int antalBarn;
-	String startDato;
-	String slutDato;
+	int customerID; 	  
+	int productID;  
+	int spotID;
+	boolean dog = false;
+	int amountAdult;
+	int amountChild;
+	String startDate;
+	String endDate;
 	int status = 0;
 	
 
@@ -22,30 +22,30 @@ public class ReservationDTO implements Serializable {
 		
 	}
 	
-	public ReservationDTO(int reservationID, int kundeID, int pladsID, int produktID, boolean hund, int antalVoksne, int antalBarn, String startDato, String slutDato)
+	public ReservationDTO(int reservationID, int customerID, int spotID, int productID, boolean dog, int amountAdult, int amountChild, String startDate, String endDate)
 	{
 		this.reservationID 	= reservationID;
-		this.kundeID 		= kundeID;
-		this.pladsID 		= pladsID;
-		this.hund			= hund;
-		this.antalVoksne	= antalVoksne;
-		this.antalBarn		= antalBarn;
-		this.startDato		= startDato;
-		this.slutDato		= slutDato;
+		this.customerID 	= customerID;
+		this.spotID 		= spotID;
+		this.dog			= dog;
+		this.amountAdult	= amountAdult;
+		this.amountChild	= amountChild;
+		this.startDate		= startDate;
+		this.endDate		= endDate;
 	}
 	
-	public int 		getKundeID() { return kundeID; }
-	public int 		getProduktID() { return produktID; }
-	public int 		getPladsID() { return pladsID; }
-	public boolean 	getHund() { return hund; }
-	public int 		getAntalVoksne() { return antalVoksne; }
-	public int 		getAntalBarn() { return antalBarn; }
+	public int 		getKundeID() { return customerID; }
+	public int 		getProduktID() { return productID; }
+	public int 		getPladsID() { return spotID; }
+	public boolean 	getHund() { return dog; }
+	public int 		getAntalVoksne() { return amountAdult; }
+	public int 		getAntalBarn() { return amountChild; }
 	public int 		getStatus() { return status; }
-	public String	getStartDato (){return startDato;}
-	public String	getSlutDato () {return slutDato;}
+	public String	getstartDate (){return startDate;}
+	public String	getSlutDato () {return endDate;}
 	
-	public void 	setStartDato(String startDato) {this.startDato = startDato; }
-	public void 	setSlutDato (String slutDato) {this.slutDato = slutDato; }
+	public void 	setstartDate(String startDate) {this.startDate = startDate; }
+	public void 	setSlutDato (String slutDato) {this.endDate = slutDato; }
 	
 }
 
