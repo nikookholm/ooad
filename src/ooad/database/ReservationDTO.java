@@ -15,14 +15,15 @@ public class ReservationDTO implements Serializable {
 	String startDate;
 	String endDate;
 	int status = 0;
-	
+	int power = 0;
 
 	public ReservationDTO()
 	{
 		
 	}
 	
-	public ReservationDTO(int reservationID, int customerID, int spotID, int productID, boolean dog, int amountAdult, int amountChild, String startDate, String endDate)
+	public ReservationDTO(int reservationID, int customerID, int spotID, int productID, boolean dog, int amountAdult, 
+							int amountChild, String startDate, String endDate, int status, int power)
 	{
 		this.reservationID 	= reservationID;
 		this.customerID 	= customerID;
@@ -32,20 +33,23 @@ public class ReservationDTO implements Serializable {
 		this.amountChild	= amountChild;
 		this.startDate		= startDate;
 		this.endDate		= endDate;
+		this.power			= power;
 	}
 	
-	public int 		getKundeID() { return customerID; }
-	public int 		getProduktID() { return productID; }
-	public int 		getPladsID() { return spotID; }
-	public boolean 	getHund() { return dog; }
-	public int 		getAntalVoksne() { return amountAdult; }
-	public int 		getAntalBarn() { return amountChild; }
+	public int		getReservationID () { return reservationID; }
+	public int 		getCustomerID() { return customerID; }
+	public int 		getProductID() { return productID; }
+	public int 		getSpotID() { return spotID; }
+	public boolean 	getDog() { return dog; }
+	public int 		getAmountAdult() { return amountAdult; }
+	public int 		getAmountChild() { return amountChild; }
 	public int 		getStatus() { return status; }
-	public String	getstartDate (){return startDate;}
-	public String	getSlutDato () {return endDate;}
+	public int 		getPower() { return power;}
+	public String	getStartDate (){return startDate;}
+	public String	getEndDate () {return endDate;}
 	
-	public void 	setstartDate(String startDate) {this.startDate = startDate; }
-	public void 	setSlutDato (String slutDato) {this.endDate = slutDato; }
+	public void 	setStartDate(String startDate) {this.startDate = startDate; }
+	public void 	setEndDate (String endDate) {this.endDate = endDate; }
 	
 }
 
