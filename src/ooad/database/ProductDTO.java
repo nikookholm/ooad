@@ -11,10 +11,9 @@ public class ProductDTO implements Serializable{
 	int numberOfChildren;
 	double priceHighSeason;
 	double priceLowSeason;
-	double calculatePrice;
 	
 	public ProductDTO(int productID, String name, int numberOfAdults, int numberOfChildren, 
-					double priceHighSeason, double priceLowSeason, double calculatePrice)
+					double priceHighSeason, double priceLowSeason)
 	{
 		this.productID = productID;
 		this.name = name;
@@ -22,7 +21,6 @@ public class ProductDTO implements Serializable{
 		this.numberOfChildren = numberOfChildren;
 		this.priceHighSeason = priceHighSeason;
 		this.priceLowSeason = priceLowSeason;
-		this.calculatePrice = calculatePrice;
 	}	
 	
 	public int getProduktID() {return productID;}
@@ -37,9 +35,9 @@ public class ProductDTO implements Serializable{
 	public void setPrisHøjSæson(double PrisHøjSæson) {this.priceHighSeason = PrisHøjSæson;}
 	public double PrisLavHøjSæson() {return priceLowSeason;}
 	public void setPrisLavSæson(double PrisLavSæson) {this.priceLowSeason = PrisLavSæson;}
-	public double CalculatePrice() {return calculatePrice;}
-	public void setCalculatePrice(double CalculatePrice) {this.calculatePrice = CalculatePrice;}
+	
 	public double calculatePrice() {
 		return 0;
 	}
 }
+

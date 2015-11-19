@@ -8,10 +8,12 @@ public class CabinsDTO extends ProductDTO {
 			int NumberOfChildren, double PriceHighSeason,
 			double PriceLowSeason, double CalculatePrice) {
 		super(ProductID, Name, NumberOfAdults, NumberOfChildren, PriceHighSeason,
-				PriceLowSeason, CalculatePrice);
+				PriceLowSeason);
 	}
 	@Override
 	public double calculatePrice(){
+		double calculatePrice = 0;
+		
 		return calculatePrice;
 	}
 }
