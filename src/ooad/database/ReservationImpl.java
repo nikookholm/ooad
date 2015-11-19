@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 public class ReservationImpl implements ReservationDAO {
 
-	@Override
-	public void createReservation(ReservationDTO reservation)
+	public static void createReservation(ReservationDTO reservation)
 			throws DALException {
 		Connector.doQuery("INSERT INTO reservation (reservation_id, customer_id, spot_id, product_id, dog, adult, child, startdate, enddate, status, power, paid) VALUES" + 
 				"(" + reservation.getReservationID() + ", " + reservation.getCustomerID() + ", " + reservation.getSpotID() + ", " 
@@ -18,22 +17,19 @@ public class ReservationImpl implements ReservationDAO {
 			
 	}
 
-	@Override
-	public void deleteReservation(ReservationDTO reservation)
+	public static void deleteReservation(ReservationDTO reservation)
 			throws DALException {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void updateReservation(ReservationDTO reservation)
+	public static void updateReservation(ReservationDTO reservation)
 			throws DALException {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void setStatus(int status) throws DALException {
+	public static void setStatus(int status) throws DALException {
 		// TODO Auto-generated method stub
 		
 	}
