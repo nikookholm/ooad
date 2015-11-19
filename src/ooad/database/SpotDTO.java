@@ -1,11 +1,9 @@
 package ooad.database;
 
-public class SpaceDTO {
+public class SpotDTO {
 	
 	int spaceID;
 	int productID;
 	int location;
 	int reservationID;
-	
-
 }
