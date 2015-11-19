@@ -2,6 +2,7 @@ package ooad.database;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class CustomerDTO implements Serializable {
 	
 	private int 	customerID;

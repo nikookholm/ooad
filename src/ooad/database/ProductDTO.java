@@ -22,7 +22,6 @@ public class ProductDTO implements Serializable{
 		this.priceHighSeason = priceHighSeason;
 		this.priceLowSeason = priceLowSeason;
 	}	
-	
 	public int getProduktID() {return productID;}
 	public void setProduktID(int ProduktID){this.productID = ProduktID;}
 	public String getNavn() {return name;}
