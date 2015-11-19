@@ -9,7 +9,6 @@ public class TentsDTO extends ProductDTO {
 		super(productID, name, numberOfAdults, numberOfChildren, priceHighSeason,
 				priceLowSeason, calculatePrice);
 			}
-
 	public double calculatePrice(){
 		return calculatePrice;	
 	}

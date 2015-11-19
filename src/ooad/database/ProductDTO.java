@@ -39,7 +39,6 @@ public class ProductDTO implements Serializable{
 	public void setPrisLavSæson(double PrisLavSæson) {this.priceLowSeason = PrisLavSæson;}
 	public double CalculatePrice() {return calculatePrice;}
 	public void setCalculatePrice(double CalculatePrice) {this.calculatePrice = CalculatePrice;}
-
 	public double calculatePrice() {
 		return 0;
 	}
