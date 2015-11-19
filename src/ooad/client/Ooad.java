@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 import ooad.shared.FieldVerifier;
 import ooad.views.MainView;
+import ooad.views.OpretReservationView;
 import ooad.views.testView;
 
 
@@ -25,7 +26,7 @@ public class Ooad implements EntryPoint {
 		
 		
 		
-		RootPanel.get("main").add(new testView() );
+		RootPanel.get("main").add(new OpretReservationView() );
 	
 	}
 }

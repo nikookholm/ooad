@@ -1,10 +1,12 @@
 package ooad.views;
 
+import java.util.Date;
 import ooad.client.Ooad;
-
-import com.gargoylesoftware.htmlunit.javascript.host.Text;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.i18n.shared.DateTimeFormat;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -17,7 +19,7 @@ import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.datepicker.client.DatePicker;
-import com.sun.java_cup.internal.runtime.Scanner;
+
 
 public class OpretReservationView extends Composite {
 	
@@ -32,10 +34,9 @@ public class OpretReservationView extends Composite {
 	private TextBox nameBox, idBox, emailBox, startBox, endBox, voksBox, børnBox;
 	private Button voksB, børnB, okBtn, cancelBtn;
 	private PopupPanel pup;
-	private Text info;
 	
-	private Scanner scn;
-
+	
+	
 	private FlexTable ft, ft2;
 	
 	private Ooad ooad;
@@ -113,7 +114,20 @@ public class OpretReservationView extends Composite {
 		ft.setWidget(5, 1, endBox);
 		
 		ft.setWidget(6, 0, df);
-		
+		df.addValueChangeHandler(new ValueChangeHandler<Date>(){
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Date> event) {
+				
+				 DateTimeFormat fmt = DateTimeFormat.getFormat( "dd-MM-yyyy");
+              Date date = event.getValue();
+             
+              String dateString = fmt.format(date);
+        
+				startBox.setText(dateString);
+			}
+
+			});
 	
 		ft.setWidget(6, 1, df2);
 		
