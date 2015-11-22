@@ -20,7 +20,7 @@ public class MainView extends Composite {
 	{
 		this.vc = vc;
 
-		HorizontalPanel panel = new HorizontalPanel();
+		VerticalPanel panel = new VerticalPanel();
 
 		Anchor createReservation	= new Anchor("Opret Reservation");
 		Anchor findReservation      = new Anchor("Find Reservation");
@@ -32,22 +32,24 @@ public class MainView extends Composite {
 		ClickHandler createHandler = new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				vc.loadCreateView();		
+				vc.show(new OpretReservationView());		
 			}
 		};
 
-		ClickHandler findHandler = new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				vc.loadFindView();		
-			}
-		};
-		ClickHandler deleteHandler = new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				vc.loadDeleteView();		
-			}
-		};
+//  Handlers til views der ikke er implementerede
+		
+//		ClickHandler findHandler = new ClickHandler() {
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				vc.loadFindView();		
+//			}
+//		};
+//		ClickHandler deleteHandler = new ClickHandler() {
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				vc.loadDeleteView();		
+//			}
+//		};
 
 	
 
@@ -57,10 +59,10 @@ public class MainView extends Composite {
 		createReservation.addClickHandler(createHandler);
 		panel.add(findReservation);
 		findReservation.setStyleName("caption");
-		findReservation.addClickHandler(findHandler);
+//		findReservation.addClickHandler(findHandler);
 		panel.add(deleteReservation);
 		deleteReservation.setStyleName("caption");
-		deleteReservation.addClickHandler(deleteHandler);
+//		deleteReservation.addClickHandler(deleteHandler);
 		panel.add(new HTML("<br />"));
 
 		

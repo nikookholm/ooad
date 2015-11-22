@@ -10,7 +10,6 @@ import apple.laf.JRSUIConstants.Widget;
 public class ReservationController {
 
 	private ArrayList<ReservationDTO> 	rDTO;
-	private Widget						returnInformation;
-	private Widget						returnView;
+	
 
 }
