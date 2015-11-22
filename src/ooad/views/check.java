@@ -1,7 +1,5 @@
 package ooad.views;
 
-
-
 public class check {
 	
 	public static boolean isValidName(String name) {
@@ -20,6 +18,16 @@ public class check {
 				}
 			}
 			return true;
+		}
+		
+		// råvare navn skal være mellem 2-20 karakterer
+		public static boolean kundeName(String kundeNavn){
+			if((!check.isLettersOnly(kundeNavn)) && kundeNavn.equals(null)){
+				return false;
+			}
+			else{
+				return kundeNavn.length() >= 2;
+			}
 		}
 	
 }
