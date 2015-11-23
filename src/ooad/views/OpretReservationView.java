@@ -28,13 +28,12 @@ import com.google.gwt.user.datepicker.client.DatePicker;
 
 
 
-@SuppressWarnings("deprecation")
 public class OpretReservationView extends Composite {
 
 	private  VerticalPanel vPanel1 , vPanel2;
 	private HorizontalPanel hPanel;
 
-	boolean nameboxCheck = false, emailBoxCheck = false;
+	boolean nameboxCheck = false, emailBoxCheck = false, startBoxCheck = false;
 	private Label createReservL,kundeInfoL, customerNameL, costumerEmailL, produktL, datoL, startDatoL, endDatoL,antalPersone,voksenL,børnL,hundL;
 	private final DatePicker calendar1, calendar2 ;
 	private CheckBox checkHunde;
@@ -49,7 +48,6 @@ public class OpretReservationView extends Composite {
 	private Ooad ooad;
 
 
-	@SuppressWarnings("deprecation")
 	public OpretReservationView (){
 
 		hPanel = new HorizontalPanel();
@@ -81,7 +79,7 @@ public class OpretReservationView extends Composite {
 		kundeInfoL = new Label ("Information om kunden");
 		customerNameL = new Label ("Navn");
 		costumerEmailL = new Label( "email");
-		datoL = new Label("reservation dato");
+		datoL = new Label("reservation dato (dd-mm-åå)");
 		startDatoL = new Label("Start");
 		endDatoL = new Label ("slut");
 		antalPersone = new Label("antal personer:");
@@ -103,7 +101,7 @@ public class OpretReservationView extends Composite {
 			antalBørnLB.addItem("" + i);
 		}
 
-	
+
 		produktList.addItem("Camping Vogn");
 		produktList.addItem("Telt");
 		produktList.addItem("Hytter");
@@ -184,9 +182,6 @@ public class OpretReservationView extends Composite {
 
 		ft.setWidget(9, 0, antlVoksenLB);
 		ft.setWidget(9, 1, antalBørnLB);
-//
-//		ft.setWidget(10, 0, hundL);
-//		ft.setWidget(10, 1, checkHunde);
 
 		ft.setWidget(11, 0, produktL);
 		produktL.setStyleName("input-text");
@@ -248,6 +243,8 @@ public class OpretReservationView extends Composite {
 
 		nameBox.addKeyUpHandler(new custmerName());
 		emailBox.addKeyUpHandler(new emailBox());
+		startBox.addKeyUpHandler(new date());
+		endBox.addKeyUpHandler(new date());
 		initWidget(hPanel);
 
 	}
@@ -268,24 +265,56 @@ public class OpretReservationView extends Composite {
 
 		}
 	}
+
+	private class date implements KeyUpHandler{
+
+		@Override
+		public void onKeyUp(KeyUpEvent event) {
+			if (!check.dateFormate(startBox.getText())){
+
+				startBox.setStyleName("gwt-TextBox-invalidEntry");
+				startBoxCheck = false;
+			}
+			else {
+				startBox.removeStyleName("gwt-TextBox-invalidEntry");
+				startBoxCheck = true;
+				okButtonEnabler();
+			}
+			if (!check.dateFormate(endBox.getText())){
+
+				endBox.setStyleName("gwt-TextBox-invalidEntry");
+				startBoxCheck = false;
+			}
+			else {
+				endBox.removeStyleName("gwt-TextBox-invalidEntry");
+				startBoxCheck = true;
+				okButtonEnabler();
+			}
+
+
+
+		}
+
+
+	}
 	private class emailBox implements KeyUpHandler{
 
 		public void onKeyUp(KeyUpEvent event) {
-			
+
 			if (!check.emailsSnabelAandDot(emailBox.getText())){
-				
+
 				emailBox.setStyleName("gwt-TextBox-invalidEntry");
-				 emailBoxCheck = false;
+				emailBoxCheck = false;
 			}
 			else {
 				emailBox.removeStyleName("gwt-TextBox-invalidEntry");
 				emailBoxCheck = true;
 				okButtonEnabler();
 			}
-	
-			
+
+
 		}
-		
+
 	}
 	public void okButtonEnabler(){
 		if(nameboxCheck){
@@ -309,7 +338,7 @@ public class OpretReservationView extends Composite {
 				proType.clear();
 				proType.addItem("hund tillad");
 				proType.addItem("hund ikke tillad");
-				
+
 
 			}else if ( produktList.isItemSelected(2) == true){
 				proType.clear();
@@ -322,7 +351,7 @@ public class OpretReservationView extends Composite {
 						+ " max. 6 personer "
 						+ " pr. ekstra person 100,00kr/døgen");
 			}
-			
+
 		}
 
 

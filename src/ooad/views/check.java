@@ -51,5 +51,24 @@ public class check {
             return valid;
 
 		}
+		
+		public static boolean dateFormate (String d){
+			if(d == null) return false;
+			
+			String  tastDate = "^[0-9]+[0-9]+[-]+[0-9]+[0-9]+[-]+[0-9]+[0-9]";
+			
+			boolean valid = false;
+			
+			if(d.getClass().toString().equals(String.class.toString())){
+				valid = ((String)d).matches(tastDate);
+			} else {
+				valid = ((String)d).toString().matches(tastDate);
+			}
+			return valid;
+			
+			
+			
+			
+		}
 	
 }
