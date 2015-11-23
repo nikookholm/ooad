@@ -54,7 +54,7 @@ public class OpretReservationView extends Composite {
 
 		ft = new FlexTable();
 		ft2 = new FlexTable();
-		checkHunde = new CheckBox();
+		checkHunde = new CheckBox("har: ");
 		calendar1 = new DatePicker();
 		calendar2 = new DatePicker();
 
@@ -107,51 +107,28 @@ public class OpretReservationView extends Composite {
 		produktList.addItem(h);
 
 
-		//			switch (key) {
-		//			case "Camping vogne":
-		//				camVongType.addItem(" plads <= 110m^2");
-		//				camVongType.addItem("plads > 110m^2");
-		//				
-		//				
-		//				break;
-		//			case 2: 
-		//				teltType.addItem("hund tillad");
-		//				teltType.addItem("hund ikke tillad");
-		//				
-		//				break;
-		//			case 3:
-		//				hytterType.addItem("lille hytter til 2 personer");
-		//				hytterType.addItem("stor hytter til 2 personer");
-		//				hytterType.addItem("hytter til 4 personer");
-		//				hytterType.addItem("luksus hytter til 4 personer \n max. 6 personer \n pr. ekstra person 100,00kr/døgen");
-		//				hytterType.addItem("luksus hytter med tagtrrasen til 4 personer \n max. 6 personer \n pr. ekstra person 100,00kr/døgen");
-		//			}
+		if(produktList.isItemSelected(0) == true){
+			proType.addItem(" plads <= 110m^2");
+			proType.addItem("plads > 110m^2");
+		} else
+			if ( produktList.isItemSelected(1) == true){
 
+				proType.addItem("hund tillad");
+				proType.addItem("hund ikke tillad");
+			
+			}else
 
+		if ( produktList.isItemSelected(2) == true){
 
-		//			
-		//			if(produktList.isItemSelected(1) == true){
-		//				proType.addItem(" plads <= 110m^2");
-		//				proType.addItem("plads > 110m^2");
-		//				
-		//				System.err.println("camVogn" );
-		//			} else
-		//				if ( produktList.isItemSelected(2) == false){
-		//					
-		//				proType.addItem("hund tillad");
-		//				proType.addItem("hund ikke tillad");
-		//				System.err.println("telt");
-		//				
-		//			}
-		//			
-		//				if (produktList.isItemSelected(2) == true){
-		//			
-		//				proType.addItem("lille hytter til 2 personer");
-		//				proType.addItem("stor hytter til 2 personer");
-		//				proType.addItem("hytter til 4 personer");
-		//				proType.addItem("luksus hytter til 4 personer \n max. 6 personer \n pr. ekstra person 100,00kr/døgen");
-		//				proType.addItem("luksus hytter med tagtrrasen til 4 personer \n max. 6 personer \n pr. ekstra person 100,00kr/døgen");
-		//			}
+			proType.addItem("lille hytter til 2 personer");
+			proType.addItem("stor hytter til 2 personer");
+			proType.addItem("hytter til 4 personer");
+			proType.addItem("luksus hytter til 4 personer "
+							+ "max. 6 personer \n pr. ekstra person 100,00kr/døgen");
+			proType.addItem("luksus hytter med tagtrrasen til 4 personer"
+							+ " max. 6 personer "
+							+ " pr. ekstra person 100,00kr/døgen");
+		}
 
 
 		ft.setWidget(0, 0, kundeInfoL);
@@ -239,40 +216,43 @@ public class OpretReservationView extends Composite {
 		ft.setWidget(12, 0, produktList);
 
 
-		if(produktList.isItemSelected(1)){
-
-			proType.addItem(" plads <= 110m^2");
-			proType.addItem("plads > 110m^2");
-
-
-		} else
-
-			if ( produktList.isItemSelected(2))
-			{
-
-				proType.addItem("hund tillad");
-				proType.addItem("hund ikke tillad");
-
-
-			}else
-
-				if (produktList.isItemSelected(3))
-				{
-
-					proType.addItem("lille hytter til 2 personer");
-					proType.addItem("stor hytter til 2 personer");
-					proType.addItem("hytter til 4 personer");
-					proType.addItem("luksus hytter til 4 personer "
-							+ "max. 6 personer "
-							+ " pr. ekstra person 100,00kr/døgen");
-					proType.addItem("luksus hytter med tagtrrasen til 4 personer "
-							+ " max. 6 personer "
-							+ " pr. ekstra person 100,00kr/døgen");
-				}
-
-
-
 		ft.setWidget(12, 1, proType);
+
+		//
+		//		if(produktList.isItemSelected(1) == true ){
+		//
+		//			proType.addItem(" plads <= 110m^2");
+		//			proType.addItem("plads > 110m^2");
+		//
+		//
+		//		} 
+		//		else
+		//
+		//			if ( produktList.isItemSelected(2) == true )
+		//			{
+		//
+		//				proType.addItem("hund tillad");
+		//				proType.addItem("hund ikke tillad");
+		//
+		//
+		//			}else
+		//
+		//				if (produktList.isItemSelected(3) == true)
+		//				{
+		//
+		//					proType.addItem("lille hytter til 2 personer");
+		//					proType.addItem("stor hytter til 2 personer");
+		//					proType.addItem("hytter til 4 personer");
+		//					proType.addItem("luksus hytter til 4 personer "
+		//							+ "max. 6 personer "
+		//							+ " pr. ekstra person 100,00kr/døgen");
+		//					proType.addItem("luksus hytter med tagtrrasen til 4 personer "
+		//							+ " max. 6 personer "
+		//							+ " pr. ekstra person 100,00kr/døgen");
+		//				}
+
+
+
 
 
 		ft.setWidget(14, 0, cancelBtn);
