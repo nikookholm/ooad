@@ -4,6 +4,8 @@ import java.util.Date;
 
 import ooad.client.Ooad;
 
+import com.google.gwt.aria.client.AlertRole;
+import com.google.gwt.aria.client.AlertdialogRole;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
@@ -22,16 +24,17 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DatePicker;
 
 
+
+@SuppressWarnings("deprecation")
 public class OpretReservationView extends Composite {
 
 	private  VerticalPanel vPanel1 , vPanel2;
 	private HorizontalPanel hPanel;
 
-	boolean nameboxCheck = false;
+	boolean nameboxCheck = false, emailBoxCheck = false;
 	private Label createReservL,kundeInfoL, customerNameL, costumerEmailL, produktL, datoL, startDatoL, endDatoL,antalPersone,voksenL,børnL,hundL;
 	private final DatePicker calendar1, calendar2 ;
 	private CheckBox checkHunde;
@@ -46,6 +49,7 @@ public class OpretReservationView extends Composite {
 	private Ooad ooad;
 
 
+	@SuppressWarnings("deprecation")
 	public OpretReservationView (){
 
 		hPanel = new HorizontalPanel();
@@ -99,37 +103,10 @@ public class OpretReservationView extends Composite {
 			antalBørnLB.addItem("" + i);
 		}
 
-		String c = "Camping Vogn";
-		produktList.addItem(c);
-		String t = "Telt";
-		produktList.addItem(t);
-		String h = "Hytter";
-		produktList.addItem(h);
-
-
-		if(produktList.isItemSelected(0) == true){
-			proType.addItem(" plads <= 110m^2");
-			proType.addItem("plads > 110m^2");
-		} else
-			if ( produktList.isItemSelected(1) == true){
-
-				proType.addItem("hund tillad");
-				proType.addItem("hund ikke tillad");
-			
-			}else
-
-		if ( produktList.isItemSelected(2) == true){
-
-			proType.addItem("lille hytter til 2 personer");
-			proType.addItem("stor hytter til 2 personer");
-			proType.addItem("hytter til 4 personer");
-			proType.addItem("luksus hytter til 4 personer "
-							+ "max. 6 personer \n pr. ekstra person 100,00kr/døgen");
-			proType.addItem("luksus hytter med tagtrrasen til 4 personer"
-							+ " max. 6 personer "
-							+ " pr. ekstra person 100,00kr/døgen");
-		}
-
+	
+		produktList.addItem("Camping Vogn");
+		produktList.addItem("Telt");
+		produktList.addItem("Hytter");
 
 		ft.setWidget(0, 0, kundeInfoL);
 		kundeInfoL.setStyleName("input-text");
@@ -207,53 +184,18 @@ public class OpretReservationView extends Composite {
 
 		ft.setWidget(9, 0, antlVoksenLB);
 		ft.setWidget(9, 1, antalBørnLB);
-
-		ft.setWidget(10, 0, hundL);
-		ft.setWidget(10, 1, checkHunde);
+//
+//		ft.setWidget(10, 0, hundL);
+//		ft.setWidget(10, 1, checkHunde);
 
 		ft.setWidget(11, 0, produktL);
 		produktL.setStyleName("input-text");
 		ft.setWidget(12, 0, produktList);
 
+		produktList.addClickHandler((ClickHandler) new listnerCheckList());
+
 
 		ft.setWidget(12, 1, proType);
-
-		//
-		//		if(produktList.isItemSelected(1) == true ){
-		//
-		//			proType.addItem(" plads <= 110m^2");
-		//			proType.addItem("plads > 110m^2");
-		//
-		//
-		//		} 
-		//		else
-		//
-		//			if ( produktList.isItemSelected(2) == true )
-		//			{
-		//
-		//				proType.addItem("hund tillad");
-		//				proType.addItem("hund ikke tillad");
-		//
-		//
-		//			}else
-		//
-		//				if (produktList.isItemSelected(3) == true)
-		//				{
-		//
-		//					proType.addItem("lille hytter til 2 personer");
-		//					proType.addItem("stor hytter til 2 personer");
-		//					proType.addItem("hytter til 4 personer");
-		//					proType.addItem("luksus hytter til 4 personer "
-		//							+ "max. 6 personer "
-		//							+ " pr. ekstra person 100,00kr/døgen");
-		//					proType.addItem("luksus hytter med tagtrrasen til 4 personer "
-		//							+ " max. 6 personer "
-		//							+ " pr. ekstra person 100,00kr/døgen");
-		//				}
-
-
-
-
 
 		ft.setWidget(14, 0, cancelBtn);
 		cancelBtn.setEnabled(true);
@@ -286,11 +228,11 @@ public class OpretReservationView extends Composite {
 
 		createReservL.getAbsoluteTop();
 
-
-
-		ft.getCellFormatter().setWidth(0, 0, "50px");
-		ft.getCellFormatter().setWidth(0, 1, "50px");
-		ft.getCellFormatter().setWidth(10,1, "10px");
+		//
+		//
+		//		ft.getCellFormatter().setWidth(0, 0, "50px");
+		//		ft.getCellFormatter().setWidth(0, 1, "50px");
+		//		ft.getCellFormatter().setWidth(10,1, "10px");
 
 		vPanel1.add(ft);
 
@@ -301,13 +243,11 @@ public class OpretReservationView extends Composite {
 
 		vPanel2.add(ft2);
 
-
-
-
 		hPanel.add(vPanel1);
 		hPanel.add(vPanel2);
 
 		nameBox.addKeyUpHandler(new custmerName());
+		emailBox.addKeyUpHandler(new emailBox());
 		initWidget(hPanel);
 
 	}
@@ -328,6 +268,25 @@ public class OpretReservationView extends Composite {
 
 		}
 	}
+	private class emailBox implements KeyUpHandler{
+
+		public void onKeyUp(KeyUpEvent event) {
+			
+			if (!check.emailsSnabelAandDot(emailBox.getText())){
+				
+				emailBox.setStyleName("gwt-TextBox-invalidEntry");
+				 emailBoxCheck = false;
+			}
+			else {
+				emailBox.removeStyleName("gwt-TextBox-invalidEntry");
+				emailBoxCheck = true;
+				okButtonEnabler();
+			}
+	
+			
+		}
+		
+	}
 	public void okButtonEnabler(){
 		if(nameboxCheck){
 			okBtn.setEnabled(true);
@@ -336,6 +295,38 @@ public class OpretReservationView extends Composite {
 
 	}
 
+	private class  listnerCheckList implements ClickHandler{
+
+
+		@Override
+		public void onClick(ClickEvent event) {
+			// TODO Auto-generated method stub
+			if(produktList.isItemSelected(0) == true){
+				proType.clear();
+				proType.addItem(" plads <= 110m^2");
+				proType.addItem("plads > 110m^2");
+			} else if ( produktList.isItemSelected(1) == true){
+				proType.clear();
+				proType.addItem("hund tillad");
+				proType.addItem("hund ikke tillad");
+				
+
+			}else if ( produktList.isItemSelected(2) == true){
+				proType.clear();
+				proType.addItem("lille hytter til 2 personer");
+				proType.addItem("stor hytter til 2 personer");
+				proType.addItem("hytter til 4 personer");
+				proType.addItem("luksus hytter til 4 personer "
+						+ "max. 6 personer \n pr. ekstra person 100,00kr/døgen");
+				proType.addItem("luksus hytter med tagtrrasen til 4 personer"
+						+ " max. 6 personer "
+						+ " pr. ekstra person 100,00kr/døgen");
+			}
+			
+		}
+
+
+	}
 
 
 }

@@ -1,5 +1,7 @@
 package ooad.views;
 
+import java_cup.reduce_action;
+
 public class check {
 	
 	public static boolean isValidName(String name) {
@@ -28,6 +30,26 @@ public class check {
 			else{
 				return kundeNavn.length() >= 2;
 			}
+		}
+		
+		
+//		emailBox skal have @ og .com/dk/af/.....
+		public static boolean emailsSnabelAandDot( String emailCkeck){
+			
+			if(emailCkeck == null) return false;
+            
+            String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(?:[a-zA-Z]{2,6})$";
+            
+            boolean valid = false;
+            
+            if(emailCkeck.getClass().toString().equals(String.class.toString())) {
+                    valid = ((String)emailCkeck).matches(emailPattern);
+            } else {
+                    valid = ((String)emailCkeck).toString().matches(emailPattern);
+            }
+
+            return valid;
+
 		}
 	
 }
