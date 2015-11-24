@@ -40,7 +40,7 @@ public class OpretReservationView extends Composite {
 	private ListBox antlVoksenLB, antalBørnLB, produktList, proType, Xman;
 	private TextBox nameBox, emailBox, startBox, endBox;
 	private Button voksB, børnB, okBtn, cancelBtn;
-	private Image icon;
+
 
 
 
@@ -57,13 +57,12 @@ public class OpretReservationView extends Composite {
 
 		ft = new FlexTable();
 		ft2 = new FlexTable();
+		
 		calendar1 = new DatePicker();
 		calendar2 = new DatePicker();
 
 
-		icon = new Image();
-//		icon.getElement().getStyle().setBackgroundImage("http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/48/Calendar-icon.png");
-		
+		Image icon = new Image("http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/48/Calendar-icon.png");		
 
 
 		antlVoksenLB = new ListBox();
@@ -96,7 +95,7 @@ public class OpretReservationView extends Composite {
 		startBox = new TextBox();
 		endBox   = new TextBox();
 
-		for ( int i =0 ;  i <=10;  i++){
+		for ( int i = 0 ;  i <= 10;  i++){
 			antlVoksenLB.addItem("" + i);
 			antalBørnLB.addItem("" + i);
 		}
@@ -231,18 +230,8 @@ public class OpretReservationView extends Composite {
 
 		createReservL.getAbsoluteTop();
 
-		//
-		//
-		//		ft.getCellFormatter().setWidth(0, 0, "50px");
-		//		ft.getCellFormatter().setWidth(0, 1, "50px");
-		//		ft.getCellFormatter().setWidth(10,1, "10px");
 
 		vPanel1.add(ft);
-
-//		Image icon2 = new Image("ooad.image/calendar23.png");
-
-
-//		ft2.setWidget(0, 0, icon2 );
 
 		vPanel2.add(ft2);
 
