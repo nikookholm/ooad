@@ -6,6 +6,7 @@ import ooad.client.Ooad;
 
 import com.google.gwt.aria.client.AlertRole;
 import com.google.gwt.aria.client.AlertdialogRole;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
@@ -34,12 +35,12 @@ public class OpretReservationView extends Composite {
 	private HorizontalPanel hPanel;
 
 	boolean nameboxCheck = false, emailBoxCheck = false, startBoxCheck = false;
-	private Label createReservL,kundeInfoL, customerNameL, costumerEmailL, produktL, datoL, startDatoL, endDatoL,antalPersone,voksenL,børnL,hundL;
+	private Label createReservL,kundeInfoL, customerNameL, costumerEmailL, produktL, datoL, startDatoL, endDatoL,antalPersone,voksenL,børnL,ekstraPersonL;
 	private final DatePicker calendar1, calendar2 ;
-	private CheckBox checkHunde;
-	private ListBox antlVoksenLB, antalBørnLB, produktList, camVongType, teltType, hytterType, proType;
-	private TextBox nameBox, idBox, emailBox, startBox, endBox, voksBox, børnBox;
+	private ListBox antlVoksenLB, antalBørnLB, produktList, proType, Xman;
+	private TextBox nameBox, emailBox, startBox, endBox;
 	private Button voksB, børnB, okBtn, cancelBtn;
+	private Image icon;
 
 
 
@@ -56,20 +57,21 @@ public class OpretReservationView extends Composite {
 
 		ft = new FlexTable();
 		ft2 = new FlexTable();
-		checkHunde = new CheckBox("har: ");
 		calendar1 = new DatePicker();
 		calendar2 = new DatePicker();
 
 
-		Image icon = new Image("calendar.png");
+		icon = new Image();
+//		icon.getElement().getStyle().setBackgroundImage("http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/48/Calendar-icon.png");
+		
+
 
 		antlVoksenLB = new ListBox();
 		antalBørnLB = new ListBox();
 		produktList = new ListBox();
-		camVongType  =new ListBox();
-		teltType = new ListBox();
-		hytterType = new ListBox();
 		proType = new ListBox();
+		Xman = new ListBox();
+		
 
 
 		okBtn = new Button("OK");
@@ -85,7 +87,7 @@ public class OpretReservationView extends Composite {
 		antalPersone = new Label("antal personer:");
 		voksenL = new Label("Voksen");
 		børnL = new Label(" Børn");
-		hundL = new Label("hund");
+		ekstraPersonL = new Label("pr. ekstra person 100,00kr/døgen");
 		produktL = new Label("valg campingpladsen: ");
 
 
@@ -93,13 +95,14 @@ public class OpretReservationView extends Composite {
 		emailBox = new TextBox();
 		startBox = new TextBox();
 		endBox   = new TextBox();
-		voksBox  = new TextBox();
-		børnBox  = new TextBox();
 
 		for ( int i =0 ;  i <=10;  i++){
 			antlVoksenLB.addItem("" + i);
 			antalBørnLB.addItem("" + i);
 		}
+		Xman.addItem("0");
+		Xman.addItem("1");
+		Xman.addItem("2");
 
 
 		produktList.addItem("Camping Vogn");
@@ -191,7 +194,12 @@ public class OpretReservationView extends Composite {
 
 
 		ft.setWidget(12, 1, proType);
-
+		
+		ft.setWidget(13, 0, ekstraPersonL);
+		ft.setWidget(13, 1, Xman);
+		Xman.setEnabled(false);
+		proType.addClickHandler((ClickHandler) new listnerProdType());
+		
 		ft.setWidget(14, 0, cancelBtn);
 		cancelBtn.setEnabled(true);
 
@@ -231,10 +239,10 @@ public class OpretReservationView extends Composite {
 
 		vPanel1.add(ft);
 
-		Image icon2 = new Image();
+//		Image icon2 = new Image("ooad.image/calendar23.png");
 
 
-		ft2.setWidget(0, 0, icon2 );
+//		ft2.setWidget(0, 0, icon2 );
 
 		vPanel2.add(ft2);
 
@@ -332,8 +340,8 @@ public class OpretReservationView extends Composite {
 			// TODO Auto-generated method stub
 			if(produktList.isItemSelected(0) == true){
 				proType.clear();
-				proType.addItem(" plads <= 110m^2");
-				proType.addItem("plads > 110m^2");
+				proType.addItem(" plads <= 110m\u00B2");
+				proType.addItem("plads > 110\u00B2");
 			} else if ( produktList.isItemSelected(1) == true){
 				proType.clear();
 				proType.addItem("hund tillad");
@@ -345,16 +353,27 @@ public class OpretReservationView extends Composite {
 				proType.addItem("lille hytter til 2 personer");
 				proType.addItem("stor hytter til 2 personer");
 				proType.addItem("hytter til 4 personer");
-				proType.addItem("luksus hytter til 4 personer "
-						+ "max. 6 personer \n pr. ekstra person 100,00kr/døgen");
+				proType.addItem("luksus hytter til 4 personer (max.6 personer)");
 				proType.addItem("luksus hytter med tagtrrasen til 4 personer"
-						+ " max. 6 personer "
-						+ " pr. ekstra person 100,00kr/døgen");
+						+ "(max.6 personer)");
+				
 			}
 
 		}
 
 
+	}
+	private class listnerProdType implements ClickHandler{
+
+		@Override
+		public void onClick(ClickEvent event) {
+			// TODO Auto-generated method stub
+			if ((proType.isItemSelected(3) == true) | (proType.isItemSelected(4) == true)){
+				Xman.setEnabled(true);
+				
+			}
+		}
+		
 	}
 
 
