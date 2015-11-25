@@ -1,12 +1,15 @@
 package ooad.server;
 
+import ooad.database.ExtraOptionsDTO;
+import ooad.database.ExtraProductDTO;
+import ooad.database.ProductDTO;
 import ooad.database.ReservationDTO;
 
 public class Billing {
 	
 	static boolean isCheckedIn;
 	static double amount;
-	
+		
 	static void checkIn(){
 		isCheckedIn = true;
 	}
@@ -14,7 +17,19 @@ public class Billing {
 	static double checkOut(ReservationDTO res){
 		amount = 0;
 		
+		//extra tilvalg - hvad har købt
+		//eaxtra produkt - hvad du har købt af
 		
+		int id = res.getCustomerID();
+		ExtraOptionsDTO xopts;
+		ExtraProductDTO xprod;
+		ProductDTO prods;
+		
+		
+		amount = amount + res.getAmountAdult() + res.getAmountChild();
+		if(res.getDog()) amount = amount + dog;
+		
+		receipt(res);
 		return amount;
 	}
 	
