@@ -1,5 +1,7 @@
 package ooad.client;
 
+import java.util.ArrayList;
+
 import ooad.database.DALException;
 import ooad.database.ReservationDTO;
 
@@ -11,6 +13,11 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("greet")
 public interface CampingService extends RemoteService {
-//	String greetServer(String name) throws IllegalArgumentException;
-	void opretReservation(ReservationDTO res) throws DALException;
+
+
+	void createReservation(ReservationDTO res) throws DALException;
+	ReservationDTO findReservation(int resID) throws DALException;
+	ArrayList<ReservationDTO> findReservations(String email) throws DALException;
+	ArrayList<ReservationDTO> findReservations() throws DALException;
+	void deleteReservation(ReservationDTO res) throws DALException;
 }

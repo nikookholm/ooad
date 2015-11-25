@@ -6,9 +6,12 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.sun.glass.ui.View;
 
 import ooad.shared.FieldVerifier;
 import ooad.views.MainView;
+import ooad.views.OpretReservationView;
+import ooad.views.ViewController;
 import ooad.views.testView;
 
 
@@ -20,12 +23,12 @@ public class Ooad implements EntryPoint {
 	private final CampingServiceAsync greetingService = GWT
 			.create(CampingService.class);
 
+	ViewController vc;
 	
 	public void onModuleLoad() {
 		
-		
-		
-		RootPanel.get("main").add(new testView() );
+		vc = new ViewController();
+		vc.show(new MainView(vc));
 	
 	}
 }

@@ -14,4 +14,10 @@ public class ExtraProductDTO {
 		this.unit = unit;
 	}
 	
+	public int getId(){return id;}
+	public String getName(){return name;}
+	public double getPrice(){return price;}
+	public String getUnit(){return unit;}
 }
+
+	
