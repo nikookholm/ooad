@@ -43,7 +43,7 @@ CREATE TABLE reservations(
 	customerID    INT,
 	spotID        INT,
 	startDate     DATE,
-	endDate       DATE
+	endDate       DATE,
 	adults        INT,
 	childrens     INT,
 	FOREIGN KEY (customerID) REFERENCES customers(customerID),
