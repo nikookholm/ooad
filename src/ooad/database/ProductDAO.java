@@ -7,4 +7,6 @@ public interface ProductDAO {
 	ArrayList<ProductDTO> getProdukts() throws DALException;
 	void createProdukt(ProductDTO produkt) throws DALException;
 	void updateProdukt(ProductDTO produkt) throws DALException;
+	ExtraBuyDTO getExtraBuy(int extraBuyID) throws DALException;
+	ArrayList<ExtraBuyDTO> getExtraBuys(int reservationID) throws DALException;
 }
