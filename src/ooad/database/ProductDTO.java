@@ -12,10 +12,7 @@ public class ProductDTO implements Serializable{
 	private double priceHighSeason;
 	private double priceLowSeason;
 	
-	public ProductDTO()
-	{
-		
-	}
+	public ProductDTO()	{ }
 	
 	public ProductDTO(int productID, String name, int numberOfAdults, int numberOfChildren, 
 					double priceHighSeason, double priceLowSeason)
@@ -27,18 +24,12 @@ public class ProductDTO implements Serializable{
 		this.priceHighSeason = priceHighSeason;
 		this.priceLowSeason = priceLowSeason;
 	}	
-	public int getProduktID() {return productID;}
-	public void setProduktID(int ProduktID){this.productID = ProduktID;}
-	public String getNavn() {return name;}
-	public void setNavn(String Navn) {this.name = Navn;}
-	public int AntalVoksne() {return numberOfAdults;}
-	public void setAntalVoksne(int AntalVoksne) {this.numberOfAdults = AntalVoksne;}
-	public int AntalBørn() {return numberOfChildren;}
-	public void setAntalBørn(int AntalBørn) {this.numberOfChildren = AntalBørn;}
-	public double PrisHøjSæson() {return priceHighSeason;}
-	public void setPrisHøjSæson(double PrisHøjSæson) {this.priceHighSeason = PrisHøjSæson;}
-	public double PrisLavHøjSæson() {return priceLowSeason;}
-	public void setPrisLavSæson(double PrisLavSæson) {this.priceLowSeason = PrisLavSæson;}
+	public int getProductID() {return productID;}
+	public String getName() {return name;}
+	public int numberOfAdults() {return numberOfAdults;}
+	public int numberOfChildren() {return numberOfChildren;}
+	public double priceHighSeason() {return priceHighSeason;}
+	public double priceLowSeason() {return priceLowSeason;}
 
 	public double calculatePrice() {
 		return 0;
