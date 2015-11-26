@@ -2,11 +2,28 @@ package ooad.database;
 
 import java.util.ArrayList;
 
-public interface ProductDAO {
-	ProductDTO getProduct(int ProduktsID) throws DALException;
-	ArrayList<ProductDTO> getProdukts() throws DALException;
-	void createProdukt(ProductDTO produkt) throws DALException;
-	void updateProdukt(ProductDTO produkt) throws DALException;
-	ExtraBuyDTO getExtraBuy(int extraBuyID) throws DALException;
-	ArrayList<ExtraBuyDTO> getExtraBuys(int reservationID) throws DALException;
+public class ProductDAO {
+	public static ProductDTO getProduct(int ProduktsID) throws DALException{
+		return null;
+	}
+	public static ArrayList<ProductDTO> getProdukts() throws DALException
+	{
+		return null;
+	}
+	public static void createProdukt(ProductDTO produkt) throws DALException
+	{
+		
+	}
+	public static void updateProdukt(ProductDTO produkt) throws DALException
+	{
+		
+	}
+	public static ExtraBuyDTO getExtraBuy(int extraBuyID) throws DALException
+	{
+		return null;
+	}
+	public static ArrayList<ExtraBuyDTO> getExtraBuys(int reservationID) throws DALException
+	{
+		return null;
+	}
 }
