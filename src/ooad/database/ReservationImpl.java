@@ -8,11 +8,11 @@ public class ReservationImpl implements ReservationDAO {
 
 	public static void createReservation(ReservationDTO reservation)
 			throws DALException {
-		Connector.doQuery("INSERT INTO reservations(reservationID, customerID, spotID, productID, dog, adult, child, startdate, enddate, status, power, paid) VALUES" + 
+		Connector.doQuery("INSERT INTO reservations(reservationID, customerID, spotID, startdate, enddate, adult, child, dog, status, power, paid) VALUES" + 
 				"(" + reservation.getReservationID() + ", " + reservation.getCustomerID() + ", " + reservation.getSpotID() + ", " 
+				+ reservation.getStartDate() + "," + reservation.getEndDate() + "," 
 				+ reservation.getAmountAdult()+ "," + reservation.getAmountChild() + "," + reservation.getDog() + ", " 
-				+ reservation.getStartDate() + "," + reservation.getEndDate() + "," + reservation.getStatus() + ","
-				+ reservation.getPower() + "," +reservation.getPaid() + ")" 
+				+ reservation.getStatus() + "," + reservation.getPower() + ")" 
 				);
 			
 	}
@@ -42,9 +42,8 @@ public class ReservationImpl implements ReservationDAO {
 	    try 
 	    {
 	    	if (!rs.first()) throw new DALException("Reservationen med ID: " + reservationID + " findes ikke");
-	    	return new ReservationDTO (rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
-	    			rs.getBoolean("dog"), rs.getInt("adults"), rs.getInt("children"), 
-	    			rs.getString("startdate"), rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid"));
+	    	return new ReservationDTO (rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), rs.getString("startdate"), 
+					rs.getString("enddate"), rs.getInt("adults"), rs.getInt("children"), rs.getBoolean("dog"), rs.getInt("status"), rs.getInt("power"));
 	    }
 	    
 	    catch (SQLException e) {throw new DALException(e); }	
@@ -62,9 +61,8 @@ public class ReservationImpl implements ReservationDAO {
 		{
 			while (rs.next()) 
 			{
-				list.add(new ReservationDTO(rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
-						rs.getBoolean("dog"), rs.getInt("adults"), rs.getInt("children"), rs.getString("startdate"), 
-						rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid")));
+				list.add(new ReservationDTO(rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), rs.getString("startdate"), 
+						rs.getString("enddate"), rs.getInt("adults"), rs.getInt("children"), rs.getBoolean("dog"), rs.getInt("status"), rs.getInt("power")));
 			}
 		}
 		
