@@ -3,9 +3,6 @@ package ooad.server;
 import java.util.ArrayList;
 
 import ooad.database.ExtraBuyDTO;
-import ooad.database.ExtraOptionDAO;
-import ooad.database.ExtraOptionDTO;
-import ooad.database.ExtraProductDAO;
 import ooad.database.ExtraProductDTO;
 import ooad.database.ProductDAO;
 import ooad.database.ProductDTO;
@@ -16,23 +13,29 @@ public class Billing {
 	static boolean isCheckedIn;
 	static double amount;
 	
-//	ExtraBuyDAO xOptDAO;
-	ExtraBuyDTO xBuyDTO;
 	ExtraProductDTO xProdDTO;
-	ProductDAO prodDAO;
+	ExtraBuyDTO xBuyDTO;
 	ProductDTO prodDTO;
+	ProductDAO prodDAO;
 	
 	static void checkIn(){
 		isCheckedIn = true;
 	}
 	
 	static double checkOut(ReservationDTO res){
+		//Reservation
+		//ProductDTO
+		//ExtraProductDTO
+		//ExtraBuy
+		
 		amount = 0;
 		
+		if(res.getDog()) amount = amount + dog;
+		
+		ProductDTO prodDTO;
+		
 		int id = res.getCustomerID();
-
 		ArrayList<ExtraBuyDTO> XBuyDTOls = new ArrayList<ExtraBuyDTO>();
-//		XBuyDTOls = xBuyDAO.get(id);
 		
 		for (ExtraBuyDTO i : XBuyDTOls) {
 			ExtraBuyDTO xBuyDTO;
@@ -43,8 +46,6 @@ public class Billing {
 			amount = amount + xBuyDTO.getPrice();
 		}
 		
-		amount = amount + res.getAmountAdult() + res.getAmountChild();
-//		if(res.getDog()) amount = amount + dog;
 		
 		receipt(res);
 		return amount;
