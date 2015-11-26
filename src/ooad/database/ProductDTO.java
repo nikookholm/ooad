@@ -5,12 +5,17 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class ProductDTO implements Serializable{
  
-	int productID;                    
-	String name;
-	int numberOfAdults;				
-	int numberOfChildren;
-	double priceHighSeason;
-	double priceLowSeason;
+	private int productID;                    
+	private String name;
+	private int numberOfAdults;				
+	private int numberOfChildren;
+	private double priceHighSeason;
+	private double priceLowSeason;
+	
+	public ProductDTO()
+	{
+		
+	}
 	
 	public ProductDTO(int productID, String name, int numberOfAdults, int numberOfChildren, 
 					double priceHighSeason, double priceLowSeason)
@@ -34,7 +39,7 @@ public class ProductDTO implements Serializable{
 	public void setPrisHøjSæson(double PrisHøjSæson) {this.priceHighSeason = PrisHøjSæson;}
 	public double PrisLavHøjSæson() {return priceLowSeason;}
 	public void setPrisLavSæson(double PrisLavSæson) {this.priceLowSeason = PrisLavSæson;}
-	
+
 	public double calculatePrice() {
 		return 0;
 	}
