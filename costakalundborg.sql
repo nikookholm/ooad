@@ -69,6 +69,10 @@ INSERT INTO products (name, maxAdults, maxChildrens, seasonPriceL, seasonPriceH)
 INSERT INTO extraProducts (productName, price, unit)
 		   VALUES ("test extra product", 3.6, "bananer");
 
+		   
+INSERT INTO reservations (customerID, spotID, startDate, endDate, adults, children)
+		  VALUES (0, 0, STR_TO_DATE("1/1/2016", "%d/%m/%Y"), STR_TO_DATE("2/1/2016", "%d/%m/%Y"), 2, 4);
+		  
 
 INSERT INTO extraBuys (extraProductID, reservationID, amount, isPaid)
 	       VALUES (0, 0, 3.6, TRUE);
@@ -77,10 +81,6 @@ INSERT INTO extraBuys (extraProductID, reservationID, amount, isPaid)
 INSERT INTO customer (name, email)
 	      VALUES ("Lars14", "areyouthefbiorsomething@fuckyou.now");
 
-
-INSERT INTO reservations (customerID, spotID, startDate, endDate, adults, children)
-		  VALUES (0, 0, STR_TO_DATE("1/1/2016", "%d/%m/%Y"), STR_TO_DATE("2/1/2016", "%d/%m/%Y"), 2, 4);
-
-
+	      
 INSERT INTO spots (productID, location, size)
 	   VALUES (0, 2, 2);
