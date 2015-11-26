@@ -13,10 +13,10 @@ public class Billing {
 	static boolean isCheckedIn;
 	static double amount;
 	
-	ExtraProductDTO xProdDTO;
-	ExtraBuyDTO xBuyDTO;
-	ProductDTO prodDTO;
-	ProductDAO prodDAO;
+//	ExtraProductDTO xProdDTO;
+//	ExtraBuyDTO xBuyDTO;
+//	ProductDTO prodDTO;
+//	ProductDAO prodDAO;
 	
 	static void checkIn(){
 		isCheckedIn = true;
@@ -32,7 +32,9 @@ public class Billing {
 		
 		if(res.getDog()) amount = amount + dog;
 		
-		ProductDTO prodDTO;
+		ProductDTO product = ProductDAO.getProduct(res.getReservationID());
+		product.
+		
 		
 		int id = res.getCustomerID();
 		ArrayList<ExtraBuyDTO> XBuyDTOls = new ArrayList<ExtraBuyDTO>();
