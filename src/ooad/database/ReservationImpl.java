@@ -10,9 +10,9 @@ public class ReservationImpl implements ReservationDAO {
 			throws DALException {
 		Connector.doQuery("INSERT INTO reservations(reservationID, customerID, spotID, productID, dog, adult, child, startdate, enddate, status, power, paid) VALUES" + 
 				"(" + reservation.getReservationID() + ", " + reservation.getCustomerID() + ", " + reservation.getSpotID() + ", " 
-				+ reservation.getProductID() + ", " + reservation.getAmountAdult()+ "," + reservation.getAmountChild() + "," 
-				+ reservation.getDog() + ", " + reservation.getStartDate() + "," + reservation.getEndDate() + "," 
-				+ reservation.getStatus() + "," + reservation.getPower() + "," +reservation.getPaid() + ")" 
+				+ reservation.getAmountAdult()+ "," + reservation.getAmountChild() + "," + reservation.getDog() + ", " 
+				+ reservation.getStartDate() + "," + reservation.getEndDate() + "," + reservation.getStatus() + ","
+				+ reservation.getPower() + "," +reservation.getPaid() + ")" 
 				);
 			
 	}
@@ -43,7 +43,7 @@ public class ReservationImpl implements ReservationDAO {
 	    {
 	    	if (!rs.first()) throw new DALException("Reservationen med ID: " + reservationID + " findes ikke");
 	    	return new ReservationDTO (rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
-	    			rs.getInt("productID"), rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), 
+	    			rs.getBoolean("dog"), rs.getInt("adults"), rs.getInt("childrens"), 
 	    			rs.getString("startdate"), rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid"));
 	    }
 	    
@@ -63,8 +63,8 @@ public class ReservationImpl implements ReservationDAO {
 			while (rs.next()) 
 			{
 				list.add(new ReservationDTO(rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
-						rs.getInt("productID"), rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), 
-						rs.getString("startdate"), rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid")));
+						rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), rs.getString("startdate"), 
+						rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid")));
 			}
 		}
 		
