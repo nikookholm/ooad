@@ -3,18 +3,18 @@ package ooad.database;
 import java.util.ArrayList;
 
 public class ProductDAO {
-	public static ProductDTO getProduct(int ProduktsID) throws DALException{
+	public static ProductDTO getProduct(int ProductID) throws DALException{
 		return null;
 	}
-	public static ArrayList<ProductDTO> getProdukts() throws DALException
+	public static ArrayList<ProductDTO> getProducts() throws DALException
 	{
 		return null;
 	}
-	public static void createProdukt(ProductDTO produkt) throws DALException
+	public static void createProdukt(ProductDTO product) throws DALException
 	{
 		
 	}
-	public static void updateProdukt(ProductDTO produkt) throws DALException
+	public static void updateProdukt(ProductDTO product) throws DALException
 	{
 		
 	}
