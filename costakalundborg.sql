@@ -46,6 +46,8 @@ CREATE TABLE reservations(
 	endDate       DATE,
 	adults        INT,
 	children      INT,
+	status        TEXT,
+	hasDog        BOOLEAN
 	FOREIGN KEY (customerID) REFERENCES customers(customerID),
 	FOREIGN KEY (spotID) REFERENCES spots(spotID)
 ) ENGINE=innoDB;
@@ -63,24 +65,22 @@ CREATE TABLE extraBuys(
 /* Inserts data in the tables */
 
 
-INSERT INTO products (name, maxAdults, maxChildren, seasonPriceL, seasonPriceH)
-              VALUES ("Test", 9, 7, 900, 88);
+INSERT INTO products (name, maxAdults, maxChildren, seasonPriceL, seasonPriceH, status, hasDog)
+VALUES ("Fucking fedt hus", 9, 7, 900, 88, "test", FALSE)
+       ("Test hus - ret nedren", 9, 7, 900, 88, "test", FALSE);
               
 INSERT INTO customers (name, email)
-	      VALUES ("Lars14", "areyouthefbiorsomething@fuckyou.now");
+VALUES ("Lars14", "areyouthefbiorsomething@fuckyou.now");
 
 INSERT INTO extraProducts (productName, price, unit)
-		   VALUES ("test extra product", 3.6, "bananer");
+VALUES ("test extra product", 3.6, "bananer");
 
 INSERT INTO spots (productID, location, size)
-	   VALUES (1, 2, 2);
+VALUES (1, 2, 2);
 		   
 INSERT INTO reservations (customerID, spotID, startDate, endDate, adults, children)
-		  VALUES (1, 1, STR_TO_DATE("1/1/2016", "%d/%m/%Y"), STR_TO_DATE("2/1/2016", "%d/%m/%Y"), 2, 4);
+VALUES (1, 1, STR_TO_DATE("1/1/2016", "%d/%m/%Y"), STR_TO_DATE("2/1/2016", "%d/%m/%Y"), 2, 4);
 		  
 
 INSERT INTO extraBuys (extraProductID, reservationID, amount, isPaid)
-	       VALUES (1, 1, 3.6, TRUE);
-
-
-	      
+VALUES (1, 1, 3.6, TRUE);
