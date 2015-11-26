@@ -8,7 +8,7 @@ public class ReservationImpl implements ReservationDAO {
 
 	public static void createReservation(ReservationDTO reservation)
 			throws DALException {
-		Connector.doQuery("INSERT INTO reservation (reservation_id, customer_id, spot_id, product_id, dog, adult, child, startdate, enddate, status, power, paid) VALUES" + 
+		Connector.doQuery("INSERT INTO reservations(reservationID, customerID, spotID, productID, dog, adult, child, startdate, enddate, status, power, paid) VALUES" + 
 				"(" + reservation.getReservationID() + ", " + reservation.getCustomerID() + ", " + reservation.getSpotID() + ", " 
 				+ reservation.getProductID() + ", " + reservation.getAmountAdult()+ "," + reservation.getAmountChild() + "," 
 				+ reservation.getDog() + ", " + reservation.getStartDate() + "," + reservation.getEndDate() + "," 
@@ -38,12 +38,12 @@ public class ReservationImpl implements ReservationDAO {
 	public ReservationDTO getReservation(int reservationID)
 			throws DALException {
 		
-		ResultSet rs = Connector.doQuery("SELECT * FROM reservation  WHERE reservation_id =" + reservationID);
+		ResultSet rs = Connector.doQuery("SELECT * FROM reservations  WHERE reservationID =" + reservationID);
 	    try 
 	    {
 	    	if (!rs.first()) throw new DALException("Reservationen med ID: " + reservationID + " findes ikke");
-	    	return new ReservationDTO (rs.getInt("reservation_id"), rs.getInt("customer_id"), rs.getInt("spot_id"), 
-	    			rs.getInt("product_id"), rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), 
+	    	return new ReservationDTO (rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
+	    			rs.getInt("productID"), rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), 
 	    			rs.getString("startdate"), rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid"));
 	    }
 	    
@@ -56,14 +56,14 @@ public class ReservationImpl implements ReservationDAO {
 			throws DALException {
 		
 		ArrayList<ReservationDTO> list = new ArrayList<ReservationDTO>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM reservation WHERE reservation_id= " + reservationID);
+		ResultSet rs = Connector.doQuery("SELECT * FROM reservations WHERE reservationID= " + reservationID);
 		
 		try
 		{
 			while (rs.next()) 
 			{
-				list.add(new ReservationDTO(rs.getInt("reservation_id"), rs.getInt("customer_id"), rs.getInt("spot_id"), 
-						rs.getInt("product_id"), rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), 
+				list.add(new ReservationDTO(rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
+						rs.getInt("productID"), rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), 
 						rs.getString("startdate"), rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid")));
 			}
 		}

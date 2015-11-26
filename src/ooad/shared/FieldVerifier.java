@@ -1,42 +1,78 @@
 package ooad.shared;
 
-/**
- * <p>
- * FieldVerifier validates that the name the user enters is valid.
- * </p>
- * <p>
- * This class is in the <code>shared</code> package because we use it in both
- * the client code and on the server. On the client, we verify that the name is
- * valid before sending an RPC request so the user doesn't have to wait for a
- * network round trip to get feedback. On the server, we verify that the name is
- * correct to ensure that the input is correct regardless of where the RPC
- * originates.
- * </p>
- * <p>
- * When creating a class that is used on both the client and the server, be sure
- * that all code is translatable and does not use native JavaScript. Code that
- * is not translatable (such as code that interacts with a database or the file
- * system) cannot be compiled into client-side JavaScript. Code that uses native
- * JavaScript (such as Widgets) cannot be run on the server.
- * </p>
- */
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern;
+import com.sun.org.apache.xerces.internal.impl.xs.identity.Selector.Matcher;
+
 public class FieldVerifier {
 
-	/**
-	 * Verifies that the specified name is valid for our service.
-	 * 
-	 * In this example, we only require that the name is at least four
-	 * characters. In your application, you can use more complex checks to ensure
-	 * that usernames, passwords, email addresses, URLs, and other fields have the
-	 * proper syntax.
-	 * 
-	 * @param name the name to validate
-	 * @return true if valid, false if invalid
-	 */
-	public static boolean isValidName(String name) {
-		if (name == null) {
+	public static boolean isNameValid(String name) {
+		if ((!FieldVerifier.isLettersOnly(name)) && (name== null)) {
 			return false;
 		}
-		return name.length() > 3;
+		return name.length() > 1;
+	}
+
+	public static boolean isIDValid(String ID) {	
+		if(ID.length() == 0){
+			return false;
+		}
+		for(char c : ID.toCharArray()){
+			if(!Character.isDigit(c)){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean isStatusValid(String str)
+	{
+		int i;
+		try{
+			i = Integer.parseInt(str);
+		}catch(NumberFormatException e){
+			return false;
+		}
+
+		if(0<=i && i<=2){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public static boolean isLettersOnly(String str){
+		char[] chars = str.toCharArray();
+		for(char c : chars){
+			if(!Character.isLetter(c)){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public boolean isValidEmailAddress(String email) {
+		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+		java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+		java.util.regex.Matcher m = p.matcher(email);
+		return ((!email.isEmpty()) && (email!=null) && (!m.matches()));
+	}
+
+
+	public boolean isValidAmount(String amount){
+		int i;
+
+		if(amount == null) return false;
+
+		try{
+			i = Integer.parseInt(amount);
+		}catch(NumberFormatException e){
+			return false;
+		}
+
+		if(1<=i && i<=10){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
