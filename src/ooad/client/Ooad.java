@@ -2,17 +2,8 @@ package ooad.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.sun.glass.ui.View;
-
-import ooad.shared.FieldVerifier;
 import ooad.views.MainView;
-import ooad.views.OpretReservationView;
 import ooad.views.ViewController;
-import ooad.views.testView;
 
 
 /**

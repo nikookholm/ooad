@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import ooad.client.CampingService;
 import ooad.database.DALException;
 import ooad.database.ReservationDTO;
-import ooad.shared.FieldVerifier;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
