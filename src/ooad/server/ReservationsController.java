@@ -19,9 +19,7 @@ public class ReservationsController {
 	public ArrayList<ReservationDTO> findReservations(String email)throws DALException{
 		return ReservationDAO.getReservations(email);
 	}
-	public ArrayList<ReservationDTO> findReservations() throws DALException{
-		return ReservationDAO.getReservations();
-	}
+
 	public void deleteReservation(ReservationDTO res) throws DALException{
 		ReservationDAO.deleteReservation(res);
 	}

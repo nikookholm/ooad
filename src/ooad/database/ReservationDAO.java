@@ -7,7 +7,11 @@ public interface ReservationDAO {
 	static void deleteReservation(ReservationDTO reservation) throws DALException{};
 	static void updateReservation(ReservationDTO reservation) throws DALException{};
 	static void setStatus(int status) throws DALException {};
-	ReservationDTO getReservation(int reservationID) throws DALException;
-	ArrayList<ReservationDTO> getReservations(int reservationID) throws DALException;
+	static ReservationDTO getReservation(int reservationID) throws DALException {
+		return new ReservationDTO();
+	}
+	static ArrayList<ReservationDTO> getReservations(String email) throws DALException {
+		return new ArrayList<ReservationDTO>();
+	}
 	ReservationDTO calcPower(int reservationID) throws DALException;
 }

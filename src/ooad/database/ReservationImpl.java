@@ -34,7 +34,6 @@ public class ReservationImpl implements ReservationDAO {
 		
 	}
 
-	@Override
 	public ReservationDTO getReservation(int reservationID)
 			throws DALException {
 		
@@ -50,7 +49,6 @@ public class ReservationImpl implements ReservationDAO {
 	}
 	
 
-	@Override
 	public ArrayList<ReservationDTO> getReservations(int reservationID)
 			throws DALException {
 		
