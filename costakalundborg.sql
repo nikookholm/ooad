@@ -24,16 +24,6 @@ CREATE TABLE extraProducts(
 	unit	       TEXT
 ) ENGINE=innoDB;
 
-CREATE TABLE extraBuys(
-	extraBuyID      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	extraProductID	INT,
-	reservationID	INT,
-	amount          REAL,
-	isPaid          BOOLEAN,
-	FOREIGN KEY (extraProductID) REFERENCES extraProducts(extraProductID),
-	FOREIGN KEY (reservationID)  REFERENCES reservations(reservationID)
-) ENGINE=innoDB;
-
 CREATE TABLE customers(
 	customerID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	name       TEXT,
@@ -42,7 +32,7 @@ CREATE TABLE customers(
 
 CREATE TABLE spots(
 	spotID        INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	productId     INT,
+	productID     INT,
 	location      INT,
 	size          INT,
 	FOREIGN KEY (productID) REFERENCES products(productID)
@@ -60,6 +50,16 @@ CREATE TABLE reservations(
 	FOREIGN KEY (spotID) REFERENCES spots(spotID)
 ) ENGINE=innoDB;
 
+CREATE TABLE extraBuys(
+	extraBuyID      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	extraProductID	INT,
+	reservationID	INT,
+	amount          REAL,
+	isPaid          BOOLEAN,
+	FOREIGN KEY (extraProductID) REFERENCES extraProducts(extraProductID),
+	FOREIGN KEY (reservationID)  REFERENCES reservations(reservationID)
+) ENGINE=innoDB;
+
 /* Inserts data in the tables */
 
 
@@ -67,11 +67,11 @@ INSERT INTO products (name, maxAdults, maxChildrens, seasonPriceL, seasonPriceH)
               VALUES ("Test", 9, 7, 900, 88);
 
 INSERT INTO extraProducts (productName, price, unit)
-		   VALUES ("test extra product", 3.6, "bananer")
+		   VALUES ("test extra product", 3.6, "bananer");
 
 
 INSERT INTO extraBuys (extraProductID, reservationID, amount, isPaid)
-	       VALUES (0, 0, 3.6, TRUE)
+	       VALUES (0, 0, 3.6, TRUE);
 
 
 INSERT INTO customer (name, email)
