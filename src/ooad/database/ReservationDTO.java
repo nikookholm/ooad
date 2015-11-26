@@ -29,6 +29,7 @@ public class ReservationDTO implements Serializable {
 		this.reservationID 	= reservationID;
 		this.customerID 	= customerID;
 		this.spotID 		= spotID;
+		this.productID		= productID;
 		this.dog			= dog;
 		this.amountAdult	= amountAdult;
 		this.amountChild	= amountChild;
@@ -40,8 +41,8 @@ public class ReservationDTO implements Serializable {
 	
 	public int		getReservationID () { return reservationID; }
 	public int 		getCustomerID() { return customerID; }
-	public int 		getProductID() { return productID; }
 	public int 		getSpotID() { return spotID; }
+	public int 		getProductID() { return productID; }
 	public boolean 	getDog() { return dog; }
 	public int 		getAmountAdult() { return amountAdult; }
 	public int 		getAmountChild() { return amountChild; }

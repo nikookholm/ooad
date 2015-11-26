@@ -1,6 +1,6 @@
 package ooad.server;
 
-import ooad.database.ExtraOptionsDTO;
+import ooad.database.ExtraOptionDTO;
 import ooad.database.ExtraProductDTO;
 import ooad.database.ProductDTO;
 import ooad.database.ReservationDTO;
@@ -21,7 +21,7 @@ public class Billing {
 		//eaxtra produkt - hvad du har købt af
 		
 		int id = res.getCustomerID();
-		ExtraOptionsDTO xopts;
+		ExtraOptionDTO xopts;
 		ExtraProductDTO xprod;
 		ProductDTO prods;
 		
