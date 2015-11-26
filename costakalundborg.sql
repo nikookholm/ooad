@@ -65,21 +65,30 @@ CREATE TABLE extraBuys(
 /* Inserts data in the tables */
 
 
-INSERT INTO products (name, maxAdults, maxChildren, seasonPriceL, seasonPriceH, status, hasDog)
-VALUES ("Fucking fedt hus", 9, 7, 900, 88, "test", FALSE)
-       ("Test hus - ret nedren", 9, 7, 900, 88, "test", FALSE);
+INSERT INTO products (name, maxAdults, maxChildren, seasonPriceL, seasonPriceH)
+VALUES ("Fucking fedt hus", 9, 7, 900, 88)
+       ("Test hus - ret nedren", 9, 7, 900, 88);
               
 INSERT INTO customers (name, email)
-VALUES ("Lars14", "areyouthefbiorsomething@fuckyou.now");
+VALUES ("Lars14", "areyouthefbiorsomething@fuckyou.now")
+	   ("Favad Saidi", "favadsmailtilfraekketilbud@hollydayallday.now");
 
 INSERT INTO extraProducts (productName, price, unit)
-VALUES ("test extra product", 3.6, "bananer");
+VALUES ("Strøm", 9000.0, "Kwh")
+	   ("Hund",  100, "")
+
 
 INSERT INTO spots (productID, location, size)
-VALUES (1, 2, 2);
+VALUES (1, 2, 2)
+       (1, 2, 2)
+       (1, 2, 2)
+       (1, 2, 2)
+       (1, 2, 2)
+       (1, 2, 2);
 		   
-INSERT INTO reservations (customerID, spotID, startDate, endDate, adults, children)
-VALUES (1, 1, STR_TO_DATE("1/1/2016", "%d/%m/%Y"), STR_TO_DATE("2/1/2016", "%d/%m/%Y"), 2, 4);
+INSERT INTO reservations (customerID, spotID, startDate, endDate, adults, children, status, hasDog)
+VALUES (1, 1, STR_TO_DATE("1/1/2016", "%d/%m/%Y"), STR_TO_DATE("2/1/2016", "%d/%m/%Y"), 2, 4, "test", FALSE)
+	   (2, 2, STR_TO_DATE("2/1/2016", "%d/%m/%Y"), STR_TO_DATE("5/1/2016", "%d/%m/%Y"), 2, 4, "TEST", TRUE);
 		  
 
 INSERT INTO extraBuys (extraProductID, reservationID, amount, isPaid)
