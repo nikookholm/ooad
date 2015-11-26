@@ -36,11 +36,6 @@ public class CampingServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public ArrayList<ReservationDTO> findReservations() throws DALException {
-		return rc.findReservations();
-	}
-
-	@Override
 	public void deleteReservation(ReservationDTO res) throws DALException {
 		rc.deleteReservation(res);
 		

@@ -18,6 +18,6 @@ public interface CampingService extends RemoteService {
 	void createReservation(ReservationDTO res) throws DALException;
 	ReservationDTO findReservation(int resID) throws DALException;
 	ArrayList<ReservationDTO> findReservations(String email) throws DALException;
-	ArrayList<ReservationDTO> findReservations() throws DALException;
+
 	void deleteReservation(ReservationDTO res) throws DALException;
 }
