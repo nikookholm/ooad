@@ -17,17 +17,17 @@ CREATE TABLE products(
 	seasonPriceH REAL
 ) ENGINE=innoDB;
 
+CREATE TABLE customers(
+	customerID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	name       TEXT,
+	email      TEXT
+) ENGINE=innoDB;
+
 CREATE TABLE extraProducts(
 	extraProductID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	productName    TEXT,
 	price          REAL,
 	unit	       TEXT
-) ENGINE=innoDB;
-
-CREATE TABLE customers(
-	customerID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	name       TEXT,
-	email      TEXT
 ) ENGINE=innoDB;
 
 CREATE TABLE spots(
@@ -45,7 +45,7 @@ CREATE TABLE reservations(
 	startDate     DATE,
 	endDate       DATE,
 	adults        INT,
-	childrens     INT,
+	children      INT,
 	FOREIGN KEY (customerID) REFERENCES customers(customerID),
 	FOREIGN KEY (spotID) REFERENCES spots(spotID)
 ) ENGINE=innoDB;
