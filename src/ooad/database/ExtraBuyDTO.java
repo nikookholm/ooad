@@ -1,13 +1,13 @@
 package ooad.database;
 
-public class ExtraOptionDTO {
+public class ExtraBuyDTO {
 	int id;
 	int reservationID;
 	double consumption;
 	int extraProductID;
 	boolean isPayed = false;
 	
-	public ExtraOptionDTO(int id, int reservationID, double consumption, int extraProductID, 
+	public ExtraBuyDTO(int id, int reservationID, double consumption, int extraProductID, 
 																			boolean isPayed){	
 		this.id = id;
 		this.reservationID = reservationID;
