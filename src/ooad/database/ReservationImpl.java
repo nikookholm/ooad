@@ -43,7 +43,7 @@ public class ReservationImpl implements ReservationDAO {
 	    {
 	    	if (!rs.first()) throw new DALException("Reservationen med ID: " + reservationID + " findes ikke");
 	    	return new ReservationDTO (rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
-	    			rs.getBoolean("dog"), rs.getInt("adults"), rs.getInt("childrens"), 
+	    			rs.getBoolean("dog"), rs.getInt("adults"), rs.getInt("children"), 
 	    			rs.getString("startdate"), rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid"));
 	    }
 	    
@@ -63,7 +63,7 @@ public class ReservationImpl implements ReservationDAO {
 			while (rs.next()) 
 			{
 				list.add(new ReservationDTO(rs.getInt("reservationID"), rs.getInt("customerID"), rs.getInt("spotID"), 
-						rs.getBoolean("dog"), rs.getInt("adult"), rs.getInt("child"), rs.getString("startdate"), 
+						rs.getBoolean("dog"), rs.getInt("adults"), rs.getInt("children"), rs.getString("startdate"), 
 						rs.getString("enddate"), rs.getInt("status"), rs.getInt("power"), rs.getBoolean("paid")));
 			}
 		}
