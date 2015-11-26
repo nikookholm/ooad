@@ -1,10 +1,10 @@
 /* Drops already existing tables */
+DROP TABLE IF EXISTS extraBuys;
+DROP TABLE IF EXISTS extraProducts;
 DROP TABLE IF EXISTS reservations;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS spots;
 DROP TABLE IF EXISTS products;
-DROP TABLE IF EXISTS extraBuys;
-DROP TABLE IF EXISTS extraProducts;
 
 /* Creates the tables */
 
@@ -12,7 +12,7 @@ CREATE TABLE products(
 	productID    INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name         TEXT,
 	maxAdults    INT,
-	maxChildrens INT,
+	maxChildren  INT,
 	seasonPriceL REAL,
 	seasonPriceH REAL
 ) ENGINE=innoDB;
@@ -63,7 +63,7 @@ CREATE TABLE extraBuys(
 /* Inserts data in the tables */
 
 
-INSERT INTO products (name, maxAdults, maxChildrens, seasonPriceL, seasonPriceH)
+INSERT INTO products (name, maxAdults, maxChildren, seasonPriceL, seasonPriceH)
               VALUES ("Test", 9, 7, 900, 88);
 
 INSERT INTO extraProducts (productName, price, unit)
