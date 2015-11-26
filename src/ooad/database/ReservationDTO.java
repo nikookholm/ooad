@@ -29,11 +29,11 @@ public class ReservationDTO implements Serializable {
 		this.reservationID 	= reservationID;
 		this.customerID 	= customerID;
 		this.spotID 		= spotID;
-		this.dog			= dog;
 		this.amountAdult	= amountAdult;
 		this.amountChild	= amountChild;
 		this.startDate		= startDate;
 		this.endDate		= endDate;
+		this.dog			= dog;
 	}
 	
 	public int		getReservationID () { return reservationID; }
@@ -45,10 +45,10 @@ public class ReservationDTO implements Serializable {
 	public int 		getAmountChild() { return amountChild; }
 	public int 		getStatus() { return status; }
 	public int 		getPower() { return power;}
-	public boolean 	getPaid() {return paid;}
 	public String	getStartDate (){return startDate;}
 	public String	getEndDate () {return endDate;}
 	
+	public void 	setStatus(boolean status) {this.status = status}
 	public void 	setStartDate(String startDate) {this.startDate = startDate; }
 	public void 	setEndDate (String endDate) {this.endDate = endDate; }
 	
