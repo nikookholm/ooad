@@ -33,12 +33,17 @@ public class CampingServiceImpl extends RemoteServiceServlet implements
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void deleteReservation(ReservationDTO res) throws DALException {
-		rc.deleteReservation(res);
+		// TODO Auto-generated method stub
 		
 	}
+
+//	@Override
+//	public void deleteReservation(ReservationDTO res) throws DALException {
+//		rc.deleteReservation(res);
+//		
+//	}
 
 
 }

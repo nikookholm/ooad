@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ReservationImpl implements ReservationDAO {
+public class ReservationImpl {
 
 	public static void createReservation(ReservationDTO reservation)
 			throws DALException {
@@ -68,11 +68,6 @@ public class ReservationImpl implements ReservationDAO {
 		return list;
 	}
 
-	@Override
-	public ReservationDTO calcPower(int reservationID)
-			throws ooad.database.DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

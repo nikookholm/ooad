@@ -48,7 +48,7 @@ public class ReservationDTO implements Serializable {
 	public String	getStartDate (){return startDate;}
 	public String	getEndDate () {return endDate;}
 	
-	public void 	setStatus(boolean status) {this.status = status}
+	public void 	setStatus(int status) {this.status = status;}
 	public void 	setStartDate(String startDate) {this.startDate = startDate; }
 	public void 	setEndDate (String endDate) {this.endDate = endDate; }
 	
