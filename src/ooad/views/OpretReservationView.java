@@ -471,8 +471,8 @@ public class OpretReservationView extends Composite {
 				proType.addItem("plads > 110\u00B2");
 			} else if ( produktList.isItemSelected(1) == true){
 				proType.clear();
-				proType.addItem("hund tillad");
-				proType.addItem("hund ikke tillad");
+				proType.addItem("hund er med");
+				proType.addItem("hund er ikke med");
 
 
 			}else if ( produktList.isItemSelected(2) == true){
