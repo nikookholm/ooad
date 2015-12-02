@@ -59,6 +59,7 @@ public class OpretReservationView extends Composite {
 		hPanel = new HorizontalPanel();
 		vPanel1 = new VerticalPanel(); 
 		vPanel2 = new VerticalPanel();
+		vPanel1.setStyleName("vpanel1");
 		ooad = new Ooad();
 		vc = new ViewController();
 
