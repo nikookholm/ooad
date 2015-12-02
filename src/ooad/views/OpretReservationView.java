@@ -267,6 +267,8 @@ public class OpretReservationView extends Composite {
 		vPanel1.add(ft);
 		
 		
+		
+		
 //		################################################
 //		alt som tilknyt til tabel 2
 		
