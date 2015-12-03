@@ -1,6 +1,7 @@
 package ooad.server;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import ooad.client.CampingService;
 import ooad.database.DALException;
@@ -37,6 +38,10 @@ public class CampingServiceImpl extends RemoteServiceServlet implements
 	public void deleteReservation(ReservationDTO res) throws DALException {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public ArrayList<ReservationDTO> findReservations(Date start, Date end) {
+		return rc.findReservations(start, end);
 	}
 
 //	@Override
