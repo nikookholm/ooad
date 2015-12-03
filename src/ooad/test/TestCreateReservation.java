@@ -1,4 +1,4 @@
-package Test;
+package ooad.test;
 
 import static org.junit.Assert.*;
 
