@@ -67,6 +67,5 @@ public class ReservationImpl {
 	    catch (SQLException e) {throw new DALException(e); }	
 	}
 
-	
 
 }
