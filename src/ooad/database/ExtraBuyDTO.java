@@ -22,4 +22,8 @@ public class ExtraBuyDTO {
 	public double getConsumption(){return consumption;}
 	public int getEkstraProductID(){return extraProductID;}
 	public boolean getExtraProductID(){return false ;}
+
+	public double getPrice() {
+		return 0;
+	}
 }

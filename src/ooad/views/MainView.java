@@ -1,5 +1,6 @@
 package ooad.views;
 
+import ooad.client.CampingServiceAsync;
 import ooad.views.ViewController;
 
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
@@ -14,6 +15,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class MainView extends Composite {
 
+	
+	
 	ViewController vc;
 
 	public MainView(final ViewController vc)

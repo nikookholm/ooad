@@ -3,10 +3,13 @@ package ooad.views;
 import java.util.Date;
 
 import ooad.client.Ooad;
+import sun.font.TextLabel;
 
 import com.google.gwt.aria.client.AlertRole;
 import com.google.gwt.aria.client.AlertdialogRole;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
@@ -35,11 +38,12 @@ public class OpretReservationView extends Composite {
 	private HorizontalPanel hPanel;
 
 	boolean nameboxCheck = false, emailBoxCheck = false, startBoxCheck = false;
-	private Label createReservL,kundeInfoL, customerNameL, costumerEmailL, produktL, datoL, startDatoL, endDatoL,antalPersone,voksenL,børnL,ekstraPersonL;
+	private Label børn2L,voksen2L,endDato2L,startDato2L,email2L,name2L, createReservL,kundeInfoL, customerNameL, costumerEmailL, produktL, datoL, startDatoL, endDatoL,antalPersone,voksenL,børnL,ekstraPersonL;
 	private final DatePicker calendar1, calendar2 ;
 	private ListBox antlVoksenLB, antalBørnLB, produktList, proType, Xman;
 	private TextBox nameBox, emailBox, startBox, endBox;
 	private Button voksB, børnB, okBtn, cancelBtn;
+	private Label camp2TL, beløb1, EksPr,beløb2, name2TL, email2TL,startDato2TL,endDato2TL,voksen2TL, børn2TL, camp2TL1, camp2LT2,camp2LT3;
 
 
 
@@ -47,6 +51,9 @@ public class OpretReservationView extends Composite {
 
 	private FlexTable ft, ft2;
 	private Ooad ooad;
+	private ViewController vc;
+
+
 
 
 	public OpretReservationView (){
@@ -54,6 +61,9 @@ public class OpretReservationView extends Composite {
 		hPanel = new HorizontalPanel();
 		vPanel1 = new VerticalPanel(); 
 		vPanel2 = new VerticalPanel();
+		vPanel1.setStyleName("vpanel1");
+		ooad = new Ooad();
+		vc = new ViewController();
 
 		ft = new FlexTable();
 		ft2 = new FlexTable();
@@ -69,6 +79,7 @@ public class OpretReservationView extends Composite {
 		antalBørnLB = new ListBox();
 		produktList = new ListBox();
 		proType = new ListBox();
+		proType.setStyleName("productStyle");
 		Xman = new ListBox();
 		
 
@@ -88,6 +99,29 @@ public class OpretReservationView extends Composite {
 		børnL = new Label(" Børn");
 		ekstraPersonL = new Label("pr. ekstra person 100,00kr/døgen");
 		produktL = new Label("valg campingpladsen: ");
+		name2L = new Label("Navn: ");
+		name2TL = new Label();
+		email2TL =  new Label();
+		startDato2TL =  new Label();
+		endDato2TL = new Label();
+		voksen2TL  = new Label();
+		børn2TL  = new Label();
+		camp2TL = new Label("valgte produkt:");
+		camp2TL1  = new Label();
+		camp2LT2  = new Label();
+		camp2LT3  = new Label();
+		børn2L  = new Label("antal af børne:");
+		voksen2L  = new Label("antl af voksne:");
+		endDato2L  = new Label("slut dato:");
+		startDato2L  = new Label("start dato:");
+		email2L  = new Label("email");
+		beløb1 = new Label("Beløb:");
+		beløb2  = new Label();
+		EksPr = new Label("antal af ekstra personer:");
+		
+
+		
+		
 
 
 		nameBox  = new TextBox();
@@ -140,6 +174,7 @@ public class OpretReservationView extends Composite {
 				String dateString = fmt.format(date);
 
 				startBox.setText(dateString);
+				startDato2TL.setText(dateString);
 				calendar1.setVisible(false);
 			}
 
@@ -160,6 +195,7 @@ public class OpretReservationView extends Composite {
 				String dateString = fmt.format(date);
 
 				endBox.setText(dateString);
+				endDato2TL.setText(dateString);
 				calendar2.setVisible(false);
 			}
 
@@ -187,9 +223,12 @@ public class OpretReservationView extends Composite {
 
 		ft.setWidget(11, 0, produktL);
 		produktL.setStyleName("input-text");
+		
 		ft.setWidget(12, 0, produktList);
 
 		produktList.addClickHandler((ClickHandler) new listnerCheckList());
+		
+		
 
 
 		ft.setWidget(12, 1, proType);
@@ -198,6 +237,7 @@ public class OpretReservationView extends Composite {
 		ft.setWidget(13, 1, Xman);
 		Xman.setEnabled(false);
 		proType.addClickHandler((ClickHandler) new listnerProdType());
+	
 		
 		ft.setWidget(14, 0, cancelBtn);
 		cancelBtn.setEnabled(true);
@@ -205,9 +245,9 @@ public class OpretReservationView extends Composite {
 		cancelBtn.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				RootPanel.get("menu").clear();
-				RootPanel.get("main").clear();
-				ooad.onModuleLoad();
+
+				vc.show(new OpretReservationView());
+
 			}
 		});
 
@@ -232,7 +272,96 @@ public class OpretReservationView extends Composite {
 
 
 		vPanel1.add(ft);
-
+		
+		
+		
+		
+//		################################################
+//		alt som tilknyt til tabel 2
+		
+		
+		
+		Image icon2 = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kalundborgs_v%C3%A5ben.png/115px-Kalundborgs_v%C3%A5ben.png");
+		ft2.setWidget(0, 0, icon2);
+		
+		ft2.setWidget(1, 0, name2L);
+		ft2.setWidget(1, 1, name2TL);
+		
+		ft2.setWidget(2, 0, email2L);
+		ft2.setWidget(2, 1, email2TL);
+		
+		ft2.setWidget(3, 0, startDato2L);
+		ft2.setWidget(3, 1, startDato2TL);
+		
+		ft2.setWidget(4, 0, endDato2L);
+		ft2.setWidget(4, 1, endDato2TL);
+		
+		ft2.setWidget(5, 0, voksen2L);
+		ft2.setWidget(5, 1, voksen2TL);
+	
+		ft2.setWidget(6, 0, børn2L);
+		ft2.setWidget(6, 1, børn2TL);
+		
+		camp2TL1.setText(""+ produktList.getItemText(produktList.getSelectedIndex()));
+//		camp2LT2.setText(""+ proType.getItemText(proType.getSelectedIndex()));
+		
+		ft2.setWidget(7, 0, camp2TL);
+		ft2.setWidget(8, 1, camp2TL1);
+		ft2.setWidget(9, 1, camp2LT2);
+		ft2.setWidget(10, 0, EksPr);
+		ft2.setWidget(10, 1, camp2LT3);
+		
+		ft2.setWidget(14, 0, beløb1);
+		ft2.setWidget(14, 1, beløb2);
+		
+		
+		antlVoksenLB.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+			voksen2TL.setText(antlVoksenLB.getSelectedIndex() +"");
+				
+			}
+		});
+		
+		antalBørnLB.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				// TODO Auto-generated method stub
+				børn2TL.setText(antalBørnLB.getSelectedIndex()+"");
+				
+			}
+		});
+		
+		produktList.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				// TODO Auto-generated method stub
+				camp2TL1.setText(""+ produktList.getItemText(produktList.getSelectedIndex()));
+			}
+		});
+		
+		proType.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				// TODO Auto-generated method stub
+				camp2LT2.setText(""+ proType.getItemText(proType.getSelectedIndex()));
+				
+			}
+		});
+		
+		Xman.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				// TODO Auto-generated method stub
+				camp2LT3.setText(""+ Xman.getItemText(Xman.getSelectedIndex()));
+			}
+		});
+	
 		vPanel2.add(ft2);
 
 		hPanel.add(vPanel1);
@@ -240,8 +369,11 @@ public class OpretReservationView extends Composite {
 
 		nameBox.addKeyUpHandler(new custmerName());
 		emailBox.addKeyUpHandler(new emailBox());
+		emailBox.addKeyUpHandler(new custmerName());
+		
 		startBox.addKeyUpHandler(new date());
 		endBox.addKeyUpHandler(new date());
+		
 		initWidget(hPanel);
 
 	}
@@ -259,6 +391,12 @@ public class OpretReservationView extends Composite {
 				nameboxCheck = true;
 				okButtonEnabler();
 			}
+			
+			name2TL.setText(nameBox.getText());
+			email2TL.setText(emailBox.getText());
+	
+			
+			
 
 		}
 	}
@@ -333,20 +471,20 @@ public class OpretReservationView extends Composite {
 				proType.addItem("plads > 110\u00B2");
 			} else if ( produktList.isItemSelected(1) == true){
 				proType.clear();
-				proType.addItem("hund tillad");
-				proType.addItem("hund ikke tillad");
+				proType.addItem("hund er med");
+				proType.addItem("hund er ikke med");
 
 
 			}else if ( produktList.isItemSelected(2) == true){
 				proType.clear();
-				proType.addItem("lille hytter til 2 personer");
-				proType.addItem("stor hytter til 2 personer");
-				proType.addItem("hytter til 4 personer");
-				proType.addItem("luksus hytter til 4 personer (max.6 personer)");
-				proType.addItem("luksus hytter med tagtrrasen til 4 personer"
-						+ "(max.6 personer)");
+				proType.addItem("lille hytte til 2 personer");
+				proType.addItem("stor hytte til 2 personer");
+				proType.addItem("hytte til 4 personer");
+				proType.addItem("luksus hytte (4 per.)");
+				proType.addItem("luksus hytte m/tagterasse (4 per.)");
 				
 			}
+			
 
 		}
 
@@ -362,6 +500,12 @@ public class OpretReservationView extends Composite {
 				
 			}
 		}
+		
+	}
+	
+	private class beløbRegning{
+		
+		
 		
 	}
 
