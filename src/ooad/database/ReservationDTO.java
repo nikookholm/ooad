@@ -17,7 +17,6 @@ public class ReservationDTO implements Serializable {
 	Date startDate;
 	Date endDate;
 	String status;
-	int power = 0;
 
 	public ReservationDTO()
 	{

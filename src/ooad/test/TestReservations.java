@@ -13,6 +13,7 @@ import code.database.IngredientDTO;
 import ooad.database.DALException;
 import ooad.database.ReservationDTO;
 import ooad.database.ReservationImpl;
+import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 
 public class TestReservations {
 		
@@ -55,16 +56,15 @@ public class TestReservations {
 	
 	@Test
 	public void testCreateReservation() throws DALException{
-			Date startDateTime 	= new Date(04/12/2015);
-			Date endDateTime	= new Date(11/12/2015);
+		ArrayList<ReservationDTO> reservationDTO = null;
 		
-			ArrayList<ReservationDTO> list = ReservationImpl.getReservationsByDates(startDateTime, endDateTime);
-			int currentHighestID  = list.get(list.size()-1).getReservationID();
-			
-			int expected = ReservationImpl.getReservationsByDates(startDateTime, endDateTime).size()+1;
-			ReservationImpl.createReservation(new ReservationDTO(currentHighestID+1, ));
-			int actual =  ReservationImpl.getReservationsByDates(startDateTime, endDateTime).size();
-			
-			assertEquals(expected, actual);
+		try{
+			res = ReservationImpl.createReservation(1,1, new Date(04/12/2015), new Date(11/12/2015), 2, 2,"aktiv", true);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		Assert.assertTrue(res != null);
 	}
+}
