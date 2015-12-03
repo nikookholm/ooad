@@ -49,9 +49,7 @@ public class Billing {
 	public double sumPriceCabin() throws DALException{
 		if(!(ProductDAO.getProduct(id)==null)){
 			
-			// skal gemme værdierne i en variable (double)
-			
-			
+		// skal gemme værdierne i en variable (double)
 		// antal ekstra personer max 2. *100
 			
 		}
