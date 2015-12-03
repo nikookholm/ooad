@@ -1,6 +1,7 @@
 package ooad.server;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import ooad.database.DALException;
 import ooad.database.ReservationDTO;
@@ -10,6 +11,11 @@ public class ReservationsController {
 
 	public void createReservation(ReservationDTO res) throws DALException {
 		ReservationImpl.createReservation(res);
+	}
+
+	public ArrayList<ReservationDTO> findReservations(Date start, Date end) {
+		return ReservationImpl.findReservations(start, end);
+		
 	}
 	
 //	public ReservationDTO findReservation(int resID) throws DALException{
