@@ -18,7 +18,7 @@ public class ReservationImpl {
 	}
 	
 	
-	public static ArrayList<ReservationDTO> getReservationByDates(Date startDateTime, Date endDateTime) throws DALException {
+	public static ArrayList<ReservationDTO> getReservationsByDates(Date startDateTime, Date endDateTime) throws DALException {
 		ResultSet rs = Connector.doQuery("SELECT * FROM reservations WHERE startDate>=" + startDateTime+ " AND endDate<=" + endDateTime);	
 		ArrayList<ReservationDTO> list = new ArrayList<ReservationDTO>();
 		
