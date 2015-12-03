@@ -33,7 +33,9 @@ public class ReservationDTO implements Serializable {
 		this.amountChild	= amountChild;
 		this.startDate		= startDate;
 		this.endDate		= endDate;
+		this.status			= status;
 		this.dog			= dog;
+		this.power			= power;
 	}
 	
 	public int		getReservationID () { return reservationID; }
