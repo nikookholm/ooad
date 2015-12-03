@@ -50,18 +50,15 @@ public class FieldVerifier {
 		return true;
 	}
 
-	public static boolean isEmailAddressValid(String email) {
+	public boolean isValidEmailAddress(String email) {
 		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
 		java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
 		java.util.regex.Matcher m = p.matcher(email);
-		if((!email.isEmpty()) && (email!=null) && (!m.matches())){
-			return false;
-		}
-		return true;
+		return ((!email.isEmpty()) && (email!=null) && (!m.matches()));
 	}
 
 
-	public static boolean isValidAmount(String amount){
+	public boolean isValidAmount(String amount){
 		int i;
 
 		if(amount == null) return false;
