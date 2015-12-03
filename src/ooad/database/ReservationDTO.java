@@ -11,14 +11,12 @@ public class ReservationDTO implements Serializable {
 	int customerID; 	  
 	int productID;  
 	int spotID;
-	boolean dog = false;
+	boolean hasDog = false;
 	int amountAdult;
 	int amountChild;
 	Date startDate;
 	Date endDate;
-	int status = 0;
-	int power = 0;
-	boolean paid = false;
+	String status;
 
 	public ReservationDTO()
 	{
@@ -26,7 +24,7 @@ public class ReservationDTO implements Serializable {
 	}
 	
 	public ReservationDTO(int customerID, int spotID, Date startDate, Date endDate, int amountAdult, 
-						  int amountChild, String status, boolean dog)
+						  int amountChild, String status, boolean hasDog)
 	{
 	
 		this.customerID 	= customerID;
@@ -35,20 +33,22 @@ public class ReservationDTO implements Serializable {
 		this.amountChild	= amountChild;
 		this.startDate		= startDate;
 		this.endDate		= endDate;
-		this.dog			= dog;
+		this.status			= status;
+		this.hasDog			= hasDog;
 	}
 	
+	public int		getReservationID(){return reservationID;}
 	public int 		getCustomerID() { return customerID; }
 	public int 		getSpotID() { return spotID; }
 	public int 		getProductID() { return productID; }
-	public boolean 	getDog() { return dog; }
+	public boolean 	getDog() { return hasDog; }
 	public int 		getAmountAdult() { return amountAdult; }
 	public int 		getAmountChild() { return amountChild; }
-	public int 		getStatus() { return status; }
+	public String 	getStatus() { return status; }
 	public Date		getStartDate (){return startDate;}
 	public Date		getEndDate () {return endDate;}
 	
-	public void 	setStatus(int status) {this.status = status;}
+	public void 	setStatus(String status) {this.status = status;}
 	public void 	setStartDate(Date startDate) {this.startDate = startDate; }
 	public void 	setEndDate (Date endDate) {this.endDate = endDate; }
 	
