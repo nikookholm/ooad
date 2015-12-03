@@ -18,7 +18,7 @@ public class Ooad implements EntryPoint {
 	
 	public void onModuleLoad() {
 		
-		vc = new ViewController();
+		vc = new ViewController(greetingService);
 		vc.show(new MainView(vc));
 	
 	}
