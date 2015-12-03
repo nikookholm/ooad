@@ -1,22 +1,26 @@
 package ooad.views;
 
+import java.util.Date;
+
+import ooad.client.CampingService;
 import ooad.client.CampingServiceAsync;
+import ooad.database.DALException;
 import ooad.views.MainView;
 import ooad.views.TopMenu;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class ViewController {
 	
-	CampingServiceAsync async;
-	
-	public ViewController(CampingServiceAsync async){
-		this.async = async;
-	}
+	 final CampingServiceAsync async = GWT
+			.create(CampingService.class);
 	
 	public ViewController(){
+		
 	}
+	
 	
 	public void show(Widget widget){
 		RootPanel.get("main").clear();
@@ -28,8 +32,6 @@ public class ViewController {
 	}
 	
 	
-	public CampingServiceAsync getAsync(){
-		return async;
-	}
+	
 
 }

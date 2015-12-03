@@ -11,14 +11,11 @@ import ooad.views.ViewController;
  */
 public class Ooad implements EntryPoint {
 	
-	private final CampingServiceAsync greetingService = GWT
-			.create(CampingService.class);
-
 	ViewController vc;
 	
 	public void onModuleLoad() {
 		
-		vc = new ViewController(greetingService);
+		vc = new ViewController();
 		vc.show(new MainView(vc));
 	
 	}

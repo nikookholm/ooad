@@ -3,14 +3,13 @@ package ooad.views;
 import ooad.client.CampingServiceAsync;
 import ooad.views.ViewController;
 
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
+
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class MainView extends Composite {
@@ -35,7 +34,7 @@ public class MainView extends Composite {
 		ClickHandler createHandler = new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				vc.show(new OpretReservationView(null));		
+				vc.show(new OpretReservationView(null, vc));		
 			}
 		};
 

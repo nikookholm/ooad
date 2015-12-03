@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import ooad.client.CampingService;
+import ooad.client.CampingServiceAsync;
 import ooad.database.DALException;
 import ooad.database.ReservationDTO;
+import ooad.views.OpretReservationView;
 
+import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
@@ -20,35 +23,18 @@ public class CampingServiceImpl extends RemoteServiceServlet implements
 	@Override
 	public void createReservation(ReservationDTO res) throws DALException {
 		rc.createReservation(res);
+	}
+	@Override
+	public ArrayList<ReservationDTO> getReservationByDate(Date startDate, Date endDate) throws DALException {
+	return	rc.getReservationByDate(startDate, endDate);
 		
 	}
-	@Override
-	public ReservationDTO findReservation(int resID) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+	
 
-	@Override
-	public ArrayList<ReservationDTO> findReservations(String email)
-			throws DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void deleteReservation(ReservationDTO res) throws DALException {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public ArrayList<ReservationDTO> findReservations(Date start, Date end) {
-		return rc.findReservations(start, end);
-	}
 
-//	@Override
-//	public void deleteReservation(ReservationDTO res) throws DALException {
-//		rc.deleteReservation(res);
-//		
-//	}
+	
 
 
 }

@@ -34,7 +34,7 @@ public class TopMenu extends Composite {
 		ClickHandler createHandler = new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				vc.show(new OpretReservationView(null));		
+				vc.show(new OpretReservationView(null, vc));		
 			}
 		};
 

@@ -3,9 +3,11 @@ package ooad.views;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ooad.client.CampingServiceAsync;
 import ooad.client.Ooad;
 import ooad.database.ReservationDTO;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Window;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
@@ -51,9 +53,10 @@ public class OpretReservationView extends Composite {
 	ArrayList<ReservationDTO> resDTO;
 	
 	private Date today;
+	
 
-	public OpretReservationView (ArrayList<ReservationDTO> resDTO){
-		
+	public OpretReservationView (ArrayList<ReservationDTO> resDTO, final ViewController vc){
+		this.vc = vc;
 		this.resDTO = resDTO;
 		
 		hPanel = new HorizontalPanel();
@@ -61,8 +64,7 @@ public class OpretReservationView extends Composite {
 		vPanel2 = new VerticalPanel();
 		vPanel1.setStyleName("vpanel1");
 		ooad = new Ooad();
-		vc = new ViewController();
-
+		
 		ft = new FlexTable();
 		ft2 = new FlexTable();
 		
@@ -79,6 +81,14 @@ public class OpretReservationView extends Composite {
 		Xman = new ListBox();
 		
 		okBtn = new Button("OK");
+		okBtn.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				com.google.gwt.user.client.Window.alert("Der Blev oprettet en Reservation");;;
+				
+			}
+		});
 		cancelBtn = new Button("Annuller");
 
 		createReservL = new Label("Opret reservation");
@@ -241,7 +251,7 @@ public class OpretReservationView extends Composite {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				vc.show(new OpretReservationView(null));
+				vc.show(new OpretReservationView(null, vc));
 
 			}
 		});
