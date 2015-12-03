@@ -38,6 +38,7 @@ public class ReservationDTO implements Serializable {
 		this.hasDog			= hasDog;
 	}
 	
+	public int		getReservationID(){return reservationID;}
 	public int 		getCustomerID() { return customerID; }
 	public int 		getSpotID() { return spotID; }
 	public int 		getProductID() { return productID; }
