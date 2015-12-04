@@ -23,13 +23,13 @@ public class ReservationImpl {
 		
 		Connect();
 		
-		 Connector.doQuery("INSERT INTO reservations(customerID, spotID, startDate, endDate, adults, children, status, hasDog) VALUES" + 
+		 Connector.doUpdate("INSERT INTO reservations(customerID, spotID, startDate, endDate, adults, children, status, hasDog) VALUES" + 
 				"(" + reservation.getCustomerID() + ", " + reservation.getSpotID() + ", " 
 				+ reservation.getStartDate() + ", " + reservation.getEndDate() + ", " 
 				+ reservation.getAmountAdult()+ ", " + reservation.getAmountChild() + ", " + reservation.getStatus() + ", "
 				+ reservation.getDog() + ")" );	
 	}
-	
+		
 	
 	public static ArrayList<ReservationDTO> getReservationsByDates(Date startDateTime, Date endDateTime) throws DALException {
 
@@ -41,7 +41,7 @@ public class ReservationImpl {
 		try {
 			while(rs.next()){
 				list.add(new ReservationDTO(rs.getInt("customerID"), rs.getInt("spotID"), rs.getDate("startDate"), rs.getDate("endDate"),
-					                        rs.getInt("adults"), rs.getInt("children"), rs.getString("status"), rs.getBoolean("hasDog")));
+					                        rs.getInt("adults"), rs.getInt("children"), rs.getString("status"), rs.getInt("hasDog")));
 			}
 		} catch (Exception e) {
 			throw new DALException(e+"Kunne ikke finde data");
@@ -74,11 +74,12 @@ public class ReservationImpl {
 	    {
 	    	if (!rs.first()) throw new DALException("Reservationen med ID: " + reservationID + " findes ikke");
 	    	return new ReservationDTO (rs.getInt("customerID"), rs.getInt("spotID"), rs.getDate("startDate"), rs.getDate("endDate"),
-					rs.getInt("adults"), rs.getInt("children"), rs.getString("status"), rs.getBoolean("hasDog"));
+					rs.getInt("adults"), rs.getInt("children"), rs.getString("status"), rs.getInt("hasDog"));
 	    }
 	    
 	    catch (SQLException e) {throw new DALException(e); }
 	}
+
 
 
 }
