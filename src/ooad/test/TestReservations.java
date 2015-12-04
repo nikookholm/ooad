@@ -63,7 +63,7 @@ public class TestReservations {
 		ArrayList<ReservationDTO> reservationDTO = null;
 		
 		try{
-			 ReservationImpl.createReservation(new ReservationDTO(5,10, new Date(15/11/2001), new Date(28/11/2001), 1, 1,"",1));
+			 ReservationImpl.createReservation(new ReservationDTO(5,10, new Date(15/11/2001), new Date(28/11/2001), 1, 1,""));
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

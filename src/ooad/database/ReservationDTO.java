@@ -24,7 +24,7 @@ public class ReservationDTO implements Serializable {
 	}
 	
 	public ReservationDTO(int customerID, int spotID, Date startDate, Date endDate, int amountAdult, 
-						  int amountChild, String status, int hasDog)
+						  int amountChild, String status)
 	{
 	
 		this.customerID 	= customerID;
@@ -34,14 +34,12 @@ public class ReservationDTO implements Serializable {
 		this.startDate		= startDate;
 		this.endDate		= endDate;
 		this.status			= status;
-		this.hasDog			= hasDog;
 	}
 	
 	public int		getReservationID(){return reservationID;}
 	public int 		getCustomerID() { return customerID; }
 	public int 		getSpotID() { return spotID; }
 	public int 		getProductID() { return productID; }
-	public int 	getDog() { return hasDog; }
 	public int 		getAmountAdult() { return amountAdult; }
 	public int 		getAmountChild() { return amountChild; }
 	public String 	getStatus() { return status; }
