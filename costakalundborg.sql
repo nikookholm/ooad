@@ -47,7 +47,6 @@ CREATE TABLE reservations(
 	adults        INT,
 	children      INT,
 	status        TEXT,
-	hasDog        BOOLEAN,
 	FOREIGN KEY (customerID) REFERENCES customers(customerID),
 	FOREIGN KEY (spotID) REFERENCES spots(spotID)
 ) ENGINE=innoDB;
@@ -135,13 +134,13 @@ INSERT INTO spots(productID, location, size) VALUES
 (8, 67, 0),
 (8, 68, 0);
 		   
-INSERT INTO reservations(customerID, spotID, startDate, endDate, adults, children, status, hasDog) VAlUES
-(1, 1, STR_TO_DATE(“04-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“11/12/2015”, "%d/%m/%Y"), 2, 2, 0, TRUE),
-(2, 7, STR_TO_DATE(“06-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“13/12/2015”, "%d/%m/%Y"), 4, 2, 0, FALSE),
-(3, 20, STR_TO_DATE(“05-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“20/12/2015”, “%d/%m/%Y”), 3, 1, 0, TRUE),
-(4, 25, STR_TO_DATE(“04-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“30/12/2015”, “%d/%m/%Y”), 4, 0, 0, FALSE),
-(5, 28, STR_TO_DATE(“01-12-2016”, “%d/%m/%Y”), STR_TO_DATE(“21/01/2016”, “%d/%m/%Y”), 4, 4, 0, TRUE),
-(6, 30, STR_TO_DATE(“04-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“11/12/2015”, "%d/%m/%Y"), 1, 0, 0, TRUE);
+INSERT INTO reservations(customerID, spotID, startDate, endDate, adults, children, status) VAlUES
+(1, 1, STR_TO_DATE(“04-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“11/12/2015”, "%d/%m/%Y"), 2, 2, 0),
+(2, 7, STR_TO_DATE(“06-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“13/12/2015”, "%d/%m/%Y"), 4, 2, 0),
+(3, 20, STR_TO_DATE(“05-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“20/12/2015”, “%d/%m/%Y”), 3, 1, 0),
+(4, 25, STR_TO_DATE(“04-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“30/12/2015”, “%d/%m/%Y”), 4, 0, 0),
+(5, 28, STR_TO_DATE(“01-12-2016”, “%d/%m/%Y”), STR_TO_DATE(“21/01/2016”, “%d/%m/%Y”), 4, 4, 0),
+(6, 30, STR_TO_DATE(“04-12-2015”, “%d/%m/%Y”), STR_TO_DATE(“11/12/2015”, "%d/%m/%Y"), 1, 0, 0);
 		  
 
 INSERT INTO extraBuys (extraProductID, reservationID, amount, isPaid)
